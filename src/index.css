@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #111212;
+    color: #E8E8E8;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Base resets for animations */
+* {
+  box-sizing: border-box;
+}
+
+/* For Locomotive/GSAP smooth scroll feel */
+html {
+  scroll-behavior: smooth;
+}
