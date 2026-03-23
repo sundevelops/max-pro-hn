@@ -63,6 +63,7 @@ function Button({ children, className = '', href = '#', onClick }) {
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,21 +74,41 @@ function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'bg-transparent'}`}>
-      <div className="flex items-center space-x-3">
-        <img src={logoImg} alt="Max Pro HN Logo" className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(232,232,232,0.3)] filter contrast-125 brightness-110 rounded-xl" />
-        <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-[#E8E8E8]">Max Pro HN</span>
+    <>
+      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'bg-transparent'}`}>
+        <div className="flex items-center space-x-3">
+          <img src={logoImg} alt="Max Pro HN Logo" className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(232,232,232,0.3)] filter contrast-125 brightness-110 rounded-xl" />
+          <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-[#E8E8E8]">Max Pro HN</span>
+        </div>
+        <div className="hidden md:flex items-center space-x-10 text-sm font-semibold text-[#8B8B8B] tracking-wide">
+          <a href="#features" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Ventajas</a>
+          <a href="#philosophy" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Filosofía</a>
+          <a href="#protocol" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Garantía</a>
+          <a href="#faq" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">FAQ</a>
+        </div>
+        <div className="flex items-center space-x-4">
+          <Button href="#contact" className="hidden md:inline-flex !px-6 !py-2.5 !text-sm tracking-wide">
+            Lo Quiero
+          </Button>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-[#E8E8E8] p-2 hover:bg-[#1A1A1A] rounded-full transition-colors relative z-50">
+            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-40 bg-[#111212]/95 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col items-center justify-center space-y-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <a href="#features" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Ventajas</a>
+        <a href="#philosophy" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Filosofía</a>
+        <a href="#protocol" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Garantía</a>
+        <a href="#faq" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">FAQ</a>
+        <div className="mt-8">
+          <Button href="#contact" onClick={() => setMenuOpen(false)} className="!px-10 !py-4 !text-lg tracking-wide">
+            Lo Quiero
+          </Button>
+        </div>
       </div>
-      <div className="hidden md:flex items-center space-x-10 text-sm font-semibold text-[#8B8B8B] tracking-wide">
-        <a href="#features" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Ventajas</a>
-        <a href="#philosophy" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Filosofía</a>
-        <a href="#protocol" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Garantía</a>
-        <a href="#faq" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">FAQ</a>
-      </div>
-      <Button href="#contact" className="!px-6 !py-2.5 !text-sm tracking-wide">
-        Lo Quiero
-      </Button>
-    </nav>
+    </>
   );
 }
 
@@ -130,7 +151,7 @@ function Hero() {
         </div>
         <div className="hero-btn mt-4 xl:mt-8">
           <Button href="#contact" className="!px-12 !py-6 !text-lg !font-bold">
-            Asegurá tu Pro Max <ArrowRight className="ml-2 w-6 h-6" />
+            Comprar Mi Pro Max
           </Button>
         </div>
       </div>
@@ -175,7 +196,7 @@ function Philosophy() {
         </h2>
 
         <p className="phil-fade">
-          Si lo comprás "nuevo" en una tienda, te arrancan la cabeza. Precios inflados, márgenes absurdos, y al final del día… estás pagando miles de lempiras de más por el mismo teléfono que podrías conseguir a una fracción del costo.
+          Si lo comprás "nuevo" en una tienda, te sacan un ojo, y el otro. Precios inflados, márgenes absurdos, y al final del día… estás pagando miles de lempiras de más por el mismo teléfono que podrías conseguir a una fracción del costo.
         </p>
         
         <p className="phil-fade font-bold text-[#E8E8E8]">Pero la alternativa tampoco es bonita.</p>
@@ -186,7 +207,7 @@ function Philosophy() {
 
         <ul className="phil-fade space-y-6 my-6 pl-6 border-l-2 border-[#443C3E]">
           <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">📱</span><span className="flex-1">Un teléfono que fue <strong className="text-[#E8E8E8]">abierto y reparado con piezas chinas baratas.</strong></span></li>
-          <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">🔋</span><span className="flex-1">Una batería destruida que no te dura ni medio día.</span></li>
+          <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">🔋</span><span className="flex-1">Una batería que no es original, es adulterada, y que no te dura ni medio día.</span></li>
           <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">🚫</span><span className="flex-1">Un equipo <strong className="text-[#E8E8E8]">manipulado</strong> que por fuera parece perfecto… pero por dentro es una bomba de tiempo.</span></li>
         </ul>
 
@@ -195,7 +216,7 @@ function Philosophy() {
         </p>
 
         <p className="phil-fade">
-          Esa es la realidad que viven miles de hondureños cada día. Quieren lo mejor de Apple — la cámara Pro, la pantalla inmensa, el rendimiento brutal del Pro Max — pero sienten que tienen que elegir entre <strong className="text-[#E8E8E8]">quemarse el bolsillo</strong> o <strong className="text-[#E8E8E8]">jugársela con un vendedor desconocido.</strong>
+          Esa es la realidad que vive la gente que quiere comprar estos tipos de teléfonos en este país. Quieren lo mejor de Apple: la cámara Pro, la pantalla inmensa, el rendimiento brutal del Pro Max, pero sienten que tienen que elegir entre <strong className="text-[#E8E8E8]">quemarse el bolsillo</strong> o <strong className="text-[#E8E8E8]">jugársela con un vendedor desconocido.</strong>
         </p>
 
         <div className="phil-fade mt-16 bg-[#1A1A1A] p-8 md:p-16 rounded-[3rem] border border-[#443C3E]/60 shadow-2xl relative">
@@ -208,23 +229,30 @@ function Philosophy() {
           </p>
 
           <p className="mb-12">
-            No es magia. No es estafa. No es un telefono "refurbished."<br/>
+            No es magia. No es estafa. No es "refurbished."<br/>
             Es <strong className="text-[#E8E8E8]">Max Pro HN.</strong> Nosotros no somos una tienda más. No vendemos de todo un poco. No vendemos Samsung, no vendemos Xiaomi, no vendemos accesorios random.
           </p>
 
           <div className="border-l-4 border-[#E8E8E8] pl-6 md:pl-10 py-2 mb-12">
             <h4 className="text-3xl md:text-5xl font-display font-bold text-[#E8E8E8] leading-[1.1] tracking-tight">
-              Nosotros hacemos UNA sola cosa — y la hacemos mejor que nadie:
+              Nosotros hacemos UNA sola cosa y la hacemos mejor que nadie:
             </h4>
             <p className="text-2xl md:text-3xl italic font-medium mt-6 text-[#8B8B8B]">
               Vendemos exclusivamente iPhone Pro Max (14, 15 y 16) en estado mint, 100% originales, a precios de mayorista.
             </p>
+            <p className="text-lg mt-2 font-mono uppercase tracking-wider text-[#44443C]">(Diferentes modelos Pro Max vendrán pronto)</p>
           </div>
 
           <p>
             ¿Cómo lo logramos? Simple. Nos saltamos la cadena de intermediarios. Accedemos a inventario de calidad premium directamente y trasladamos ese ahorro <strong className="text-[#E8E8E8]">directo a vos.</strong><br/>
             Sin inflación de tienda. Sin márgenes abusivos. Sin sorpresas.
           </p>
+        </div>
+
+        <div className="phil-fade mt-8 flex justify-center w-full">
+          <Button href="#contact" className="!px-12 !py-6 !text-lg !font-bold">
+            Solicitar Catálogo
+          </Button>
         </div>
 
       </div>
@@ -452,6 +480,12 @@ function Features() {
           </div>
 
         </div>
+
+        <div className="mt-16 flex justify-center w-full z-20 relative">
+          <Button href="#contact" className="!px-12 !py-6 !text-lg !font-bold hover:shadow-[0_0_30px_rgba(232,232,232,0.15)]">
+            Ver Precios Exclusivos
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -465,19 +499,23 @@ function Protocol() {
     let ctx = gsap.context(() => {
       const cards = cardsRef.current;
       
-      cards.forEach((card, i) => {
-        if (i === cards.length - 1) return;
+      let mm = gsap.matchMedia();
+      
+      mm.add("(min-width: 1024px)", () => {
+        cards.forEach((card, i) => {
+          if (i === cards.length - 1) return;
 
-        gsap.to(card, {
-          scale: 0.92,
-          opacity: 0.3,
-          filter: 'blur(15px)',
-          scrollTrigger: {
-            trigger: cards[i + 1],
-            start: 'top bottom-=10%',
-            end: 'top top+=20%',
-            scrub: true,
-          }
+          gsap.to(card, {
+            scale: 0.92,
+            opacity: 0.3,
+            filter: 'blur(15px)',
+            scrollTrigger: {
+              trigger: cards[i + 1],
+              start: 'top bottom-=10%',
+              end: 'top top+=20%',
+              scrub: true,
+            }
+          });
         });
       });
     }, containerRef);
@@ -548,6 +586,12 @@ function Protocol() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="relative z-30 mt-24 flex justify-center w-full">
+        <Button href="#contact" className="!px-12 !py-6 !text-lg !font-bold hover:shadow-[0_0_30px_rgba(232,232,232,0.15)]">
+          Cotizar con Respaldo
+        </Button>
       </div>
     </section>
   );
@@ -656,7 +700,7 @@ function HoverCTA() {
       <img src={phoneImg} className="flying-phone absolute w-64 h-64 object-cover rounded-[3rem] opacity-0 pointer-events-none right-0 top-0 shadow-2xl brightness-50" />
       <span className="cta-text relative z-10 flex items-center justify-center text-center font-display font-black tracking-tight transition-colors duration-300">
         <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-        Escribanos por whatsapp
+        Contactar a Ventas
       </span>
     </a>
   );
@@ -731,7 +775,7 @@ function GlobalStars() {
       cy: Math.random() * 100, // orbit center Y
       radius: Math.random() * 12 + 4, // tight orbital radius (vw/vh)
       angle: Math.random() * Math.PI * 2,
-      baseSpeed: (Math.random() * 0.03 + 0.01) * (Math.random() > 0.5 ? 1 : -1)
+      baseSpeed: (Math.random() * 0.05 + 0.02) * (Math.random() > 0.5 ? 1 : -1)
     }));
   });
 
@@ -758,8 +802,8 @@ function GlobalStars() {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
           isScrolling = false;
-          gsap.to(container, { opacity: 0, duration: 0.8, ease: 'power2.in' });
-        }, 150); 
+          gsap.to(container, { opacity: 0, duration: 2, ease: 'sine.inOut' });
+        }, 5000); 
       };
 
       window.addEventListener('scroll', onScroll, { passive: true });
@@ -823,8 +867,8 @@ export default function App() {
       <Philosophy />
       <Features />
       <Protocol />
-      <FAQ />
       <GetStarted />
+      <FAQ />
       <Footer />
     </div>
   );
