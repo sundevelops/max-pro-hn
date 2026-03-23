@@ -791,7 +791,8 @@ function GlobalStars() {
       
       const onScroll = () => {
         const currentScrollY = window.scrollY;
-        scrollVelocity = Math.abs(currentScrollY - lastScrollY);
+        // Cap max velocity so hash scrolling doesn't warp speed excessively
+        scrollVelocity = Math.min(Math.abs(currentScrollY - lastScrollY), 50);
         lastScrollY = currentScrollY;
         
         if (!isScrolling) {
@@ -802,7 +803,8 @@ function GlobalStars() {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
           isScrolling = false;
-          gsap.to(container, { opacity: 0, duration: 2, ease: 'sine.inOut' });
+          // Fade down to 0.3 so stars never completely disappear and keep animating!
+          gsap.to(container, { opacity: 0.25, duration: 2, ease: 'sine.inOut' });
         }, 5000); 
       };
 
@@ -810,20 +812,18 @@ function GlobalStars() {
       
       let animFrame;
       const render = () => {
-        // Only do heavy orbital math if the container is visible or fading out
-        if (gsap.getProperty(container, "opacity") > 0.005 || isScrolling) {
-          elements.forEach((el, i) => {
-            const s = stars[i];
-            // Spin dramatically faster when scrolling hard
-            const speedMultiplier = 1 + (scrollVelocity * 0.15); 
-            s.angle += s.baseSpeed * speedMultiplier;
-            
-            const offsetX = Math.cos(s.angle) * s.radius;
-            const offsetY = Math.sin(s.angle) * s.radius;
-            
-            el.style.transform = `translate3d(${offsetX}vw, ${offsetY}vh, 0)`;
-          });
-        }
+        // Compute continuously since they never fully disappear
+        elements.forEach((el, i) => {
+          const s = stars[i];
+          const speedMultiplier = 1 + (scrollVelocity * 0.15); 
+          s.angle += s.baseSpeed * speedMultiplier;
+          
+          const offsetX = Math.cos(s.angle) * s.radius;
+          const offsetY = Math.sin(s.angle) * s.radius;
+          
+          el.style.transform = `translate3d(${offsetX}vw, ${offsetY}vh, 0)`;
+        });
+        
         scrollVelocity *= 0.92; // smooth velocity decay
         animFrame = requestAnimationFrame(render);
       };
