@@ -97,7 +97,7 @@ function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-[90] bg-[#111212]/95 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col items-center justify-center space-y-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-[90] bg-[#111212]/95 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col items-center justify-center space-y-8 ${menuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-full'}`}>
         <a href="#features" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Ventajas</a>
         <a href="#philosophy" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Filosofía</a>
         <a href="#protocol" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Garantía</a>
