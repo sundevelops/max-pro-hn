@@ -75,7 +75,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'bg-transparent'}`}>
+      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'bg-transparent'}`}>
         <div className="flex items-center space-x-3">
           <img src={logoImg} alt="Max Pro HN Logo" className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(232,232,232,0.3)] filter contrast-125 brightness-110 rounded-xl" />
           <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-[#E8E8E8]">Max Pro HN</span>
@@ -97,7 +97,7 @@ function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-40 bg-[#111212]/95 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col items-center justify-center space-y-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-[90] bg-[#111212]/95 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col items-center justify-center space-y-8 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <a href="#features" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Ventajas</a>
         <a href="#philosophy" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Filosofía</a>
         <a href="#protocol" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Garantía</a>
