@@ -5,6 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Max Pro HN | iPhones Pro Max Originales</title>
+  <!-- Prevent Google Translate from Crashing React -->
+  <script>
+    if (typeof Node === 'function' && Node.prototype) {
+      const originalRemoveChild = Node.prototype.removeChild;
+      Node.prototype.removeChild = function(child) {
+        if (child.parentNode !== this) {
+          if (console) console.warn('Cannot remove a child from a different parent', child, this);
+          return child;
+        }
+        return originalRemoveChild.apply(this, arguments);
+      };
+      const originalInsertBefore = Node.prototype.insertBefore;
+      Node.prototype.insertBefore = function(newNode, referenceNode) {
+        if (referenceNode && referenceNode.parentNode !== this) {
+          if (console) console.warn('Cannot insert before a reference node from a different parent', referenceNode, this);
+          return newNode;
+        }
+        return originalInsertBefore.apply(this, arguments);
+      };
+    }
+  </script>
   <!-- Google Fonts line for Outfit, Plus Jakarta Sans, and JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

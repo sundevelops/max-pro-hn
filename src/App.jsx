@@ -459,8 +459,8 @@ function Features() {
           <div className="feature-card bg-[#111212] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-8 shadow-2xl flex flex-col items-center">
             <CursorScheduler />
             <div className="mt-10 text-center flex-1">
-              <h3 className="text-2xl font-display font-bold text-[#E8E8E8] mb-4 tracking-tight">✅ Batería Saludable (85% – 100%)</h3>
-              <p className="text-[#8B8B8B] text-base font-sans leading-relaxed">Dependiendo del modelo y año, la salud de batería va del 85% al 100%. Eso significa rendimiento real, duración real, y cero dolores de cabeza con baterías agotadas que te dejan tirado a media tarde.</p>
+              <h3 className="text-2xl font-display font-bold text-[#E8E8E8] mb-4 tracking-tight">✅ Batería Saludable (80% – 100%)</h3>
+              <p className="text-[#8B8B8B] text-base font-sans leading-relaxed">Dependiendo del modelo y año, la salud de batería va del 80% al 100%. Eso significa rendimiento real, duración real, y cero dolores de cabeza con baterías agotadas que te dejan tirado a media tarde.</p>
             </div>
           </div>
 
@@ -629,7 +629,7 @@ function FAQ() {
     {q: '2. Si no son nuevos de caja, ¿entonces qué son exactamente?', a: 'Son equipos en <b>condición mint</b> — estado prácticamente nuevo con leves detalles estéticos mínimos. Estamos hablando de iPhones que al verlos y usarlos <b>sentís que acabás de abrir la caja.</b> Funcionan al 100%, se ven al 100%, y rinden al 100%.<br/><br/>La única diferencia con uno "nuevo de tienda" es que ya fueron activados previamente. <b>Todo lo demás — rendimiento, apariencia, calidad — es idéntico.</b>'},
     {q: '3. ¿Qué modelos tienen disponibles?', a: 'Nos especializamos <b>exclusivamente</b> en la línea Pro Max:<br/>- 📱 <b>iPhone 14 Pro Max</b><br/>- 📱 <b>iPhone 15 Pro Max</b><br/>- 📱 <b>iPhone 16 Pro Max</b><br/><br/>No vendemos otros modelos. No vendemos otras marcas. <b>Somos especialistas en Pro Max y punto.</b> Esa obsesión por un solo producto es lo que nos permite garantizar una calidad que nadie más puede.'},
     {q: '4. ¿Qué capacidades de almacenamiento manejan?', a: 'Manejamos la capacidad más popular según disponibilidad: <b>256GB</b>.<br/>La disponibilidad varía según el lote, así que lo mejor es <b>escribirnos por WhatsApp</b> para que te digamos exactamente qué tenemos en stock en este momento.'},
-    {q: '5. ¿Cómo está la batería de los equipos?', a: 'La salud de batería de nuestros iPhones va del <b>85% al 100%</b>, dependiendo del modelo y año. Antes de vender cualquier equipo, verificamos la batería y te informamos el porcentaje exacto.<br/><br/>¿Qué significa esto en la práctica? Que tu Pro Max <b>te va a durar todo el día sin problemas.</b> Nada de andar cargando el teléfono a cada rato como pasa con esos equipos "baratos" que venden por ahí con baterías destruidas.'},
+    {q: '5. ¿Cómo está la batería de los equipos?', a: 'La salud de batería de nuestros iPhones va del <b>80% al 100%</b>, dependiendo del modelo y año. Antes de vender cualquier equipo, verificamos la batería y te informamos el porcentaje exacto.<br/><br/>¿Qué significa esto en la práctica? Que tu Pro Max <b>te va a durar todo el día sin problemas.</b> Nada de andar cargando el teléfono a cada rato como pasa con esos equipos "baratos" que venden por ahí con baterías destruidas.'},
     {q: '6. ¿Los equipos vienen con algún accesorio?', a: 'Nuestros iPhones NO vienen con <b>cargador o cable.</b> No incluimos caja original ni accesorios adicionales. ¿Por qué? Porque eso nos permite mantener los precios lo más bajos posible. Preferimos ahorrarte miles de lempiras a darte una cajita bonita que vas a guardar en un cajón.'},
     {q: '7. ¿Puedo verificar que el equipo es original antes de comprarlo?', a: '<b>¡Por supuesto!</b> Te animamos a que lo hagás. Podés revisar el estado de las piezas en los ajustes del iPhone, y confirmar que todo es 100% original de fábrica. No tenemos nada que esconder — al contrario, queremos que lo comprobes vos mismo.'},
     {q: '8. ¿Por qué sus precios son tan bajos? ¿Cuál es el truco?', a: '<b>No hay truco.</b> Hay un modelo de negocio inteligente.<br/><br/>Las tiendas tradicionales compran a intermediarios, que compraron a otros intermediarios, que compraron a distribuidores. Cada eslabón de esa cadena agrega su margen. <b>Vos terminás pagando el teléfono + la ganancia de 3 o 4 personas.</b><br/><br/>Nosotros nos saltamos todo eso. Accedemos a inventario premium directamente y trasladamos ese ahorro <b>directo a vos.</b> Es precio de mayorista para el comprador individual. Así de simple.'},
@@ -752,7 +752,7 @@ function Footer() {
         
         <div className="flex items-center space-x-3 bg-[#1A1A1A] px-5 py-3 rounded-full border border-[#2A2A2A] shadow-lg">
           <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] animate-pulse"></div>
-          <span className="font-mono text-xs text-[#E8E8E8] font-semibold uppercase tracking-widest">System Operational</span>
+          <span className="font-mono text-xs text-[#E8E8E8] font-semibold uppercase tracking-widest">Modo Ahorro Activado</span>
         </div>
       </div>
       
