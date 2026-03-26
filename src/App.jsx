@@ -565,7 +565,7 @@ function Protocol() {
               transformOrigin: 'top center'
             }}
           >
-            <div className="w-full md:w-1/2 h-[350px] md:h-auto flex-none md:flex-1 relative overflow-hidden bg-[#111212]">
+            <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-auto md:w-1/2 md:h-full flex-none md:flex-1 relative overflow-hidden bg-[#111212]">
               <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1A1A1A] via-transparent to-transparent z-10 w-full h-full"></div>
               <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen scale-105" />
             </div>
@@ -709,6 +709,7 @@ function HoverCTA({ className = '' }) {
 function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
   const modalRef = useRef(null);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     const handleOpen = () => setIsOpen(true);
@@ -717,26 +718,27 @@ function ContactModal() {
   }, []);
 
   useEffect(() => {
+    if (!modalRef.current || !contentRef.current) return;
+    
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      gsap.fromTo(modalRef.current, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' });
-      gsap.fromTo('.contact-modal-content', { y: 50, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.2)' });
+      gsap.to(modalRef.current, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' });
+      gsap.fromTo(contentRef.current, 
+        { y: 50, scale: 0.95, opacity: 0 }, 
+        { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)', delay: 0.1 }
+      );
     } else {
       document.body.style.overflow = 'unset';
+      gsap.to(modalRef.current, { opacity: 0, pointerEvents: 'none', duration: 0.3 });
+      gsap.to(contentRef.current, { y: 20, scale: 0.95, opacity: 0, duration: 0.3 });
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <div ref={modalRef} className="fixed inset-0 z-[1000] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-[#111212]/80 backdrop-blur-xl" onClick={() => {
-        gsap.to(modalRef.current, { opacity: 0, duration: 0.3, onComplete: () => setIsOpen(false) });
-      }}></div>
-      <div className="contact-modal-content relative bg-[#1A1A1A] border border-[#443C3E]/60 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] w-full max-w-2xl flex flex-col items-center text-center z-10 overflow-hidden">
-        <button onClick={() => {
-          gsap.to(modalRef.current, { opacity: 0, duration: 0.3, onComplete: () => setIsOpen(false) });
-        }} className="absolute top-6 right-6 text-[#8B8B8B] hover:text-[#E8E8E8] transition-colors p-2 bg-[#111212] rounded-full border border-[#2A2A2A]">
+    <div ref={modalRef} className="fixed inset-0 z-[1000] flex items-center justify-center p-4 opacity-0 pointer-events-none">
+      <div className="absolute inset-0 bg-[#111212]/80 backdrop-blur-xl" onClick={() => setIsOpen(false)}></div>
+      <div ref={contentRef} className="contact-modal-content relative bg-[#1A1A1A] border border-[#443C3E]/60 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.6)] w-full max-w-2xl flex flex-col items-center text-center z-10 overflow-hidden">
+        <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-[#8B8B8B] hover:text-[#E8E8E8] transition-colors p-2 bg-[#111212] rounded-full border border-[#2A2A2A]">
           <X className="w-6 h-6" />
         </button>
         
