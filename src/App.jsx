@@ -24,19 +24,18 @@ function Button({ children, className = '', href = '#', onClick }) {
       const btn = btnRef.current;
       const phone = btn.querySelector('.btn-flying-phone');
 
+      if (phone) gsap.set(phone, { x: 60, y: 30, rotation: 90, scale: 0.5, opacity: 0 });
+
       btn.addEventListener('mouseenter', () => {
-        gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'back.out(2)' });
+        gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'back.out(2)', overwrite: 'auto' });
         if (phone) {
-          gsap.fromTo(phone, 
-            { x: 60, y: 30, rotation: 90, scale: 0.5, opacity: 0 },
-            { x: 0, y: 0, rotation: -15, scale: 1.1, opacity: 0.5, duration: 0.6, ease: 'back.out(1.5)' }
-          );
+          gsap.to(phone, { x: 0, y: 0, rotation: -15, scale: 1.1, opacity: 0.5, duration: 0.6, ease: 'back.out(1.5)', overwrite: 'auto' });
         }
       });
       btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
         if (phone) {
-          gsap.to(phone, { x: -60, y: -30, rotation: -45, scale: 0.5, opacity: 0, duration: 0.4, ease: 'power2.in' });
+          gsap.to(phone, { x: 60, y: 30, rotation: 90, scale: 0.5, opacity: 0, duration: 0.4, ease: 'power2.in', overwrite: 'auto' });
         }
       });
     }, btnRef);
@@ -675,21 +674,18 @@ function HoverCTA({ className = '' }) {
       const phone = btn.querySelector('.flying-phone');
       const textSpan = btn.querySelector('.cta-text');
 
+      gsap.set(phone, { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0 });
+
       btn.addEventListener('mouseenter', () => {
-        gsap.to(btn, { scale: 1.05, duration: 0.4, ease: 'back.out(1.5)', boxShadow: '0 0 60px rgba(232,232,232,0.3)' });
-        
-        gsap.fromTo(phone, 
-          { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0 },
-          { x: 0, y: -40, rotation: -15, scale: 1.2, opacity: 0.8, duration: 0.8, ease: 'back.out(1.5)' }
-        );
-        gsap.to(textSpan, { color: '#ffffff', duration: 0.3, textShadow: '0 2px 10px rgba(0,0,0,0.8)' });
+        gsap.to(btn, { scale: 1.05, duration: 0.4, ease: 'back.out(1.5)', boxShadow: '0 0 60px rgba(232,232,232,0.3)', overwrite: 'auto' });
+        gsap.to(phone, { x: 0, y: -40, rotation: -15, scale: 1.2, opacity: 0.8, duration: 0.8, ease: 'back.out(1.5)', overwrite: 'auto' });
+        gsap.to(textSpan, { color: '#ffffff', duration: 0.3, textShadow: '0 2px 10px rgba(0,0,0,0.8)', overwrite: 'auto' });
       });
 
       btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, { scale: 1, duration: 0.4, ease: 'power2.out', boxShadow: '0 0 40px rgba(232,232,232,0.15)' });
-        
-        gsap.to(phone, { x: -300, y: -150, rotation: -90, scale: 0.2, opacity: 0, duration: 0.5, ease: 'power2.in' });
-        gsap.to(textSpan, { color: '#111212', duration: 0.3, textShadow: 'none' });
+        gsap.to(btn, { scale: 1, duration: 0.4, ease: 'power2.out', boxShadow: '0 0 40px rgba(232,232,232,0.15)', overwrite: 'auto' });
+        gsap.to(phone, { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0, duration: 0.5, ease: 'power2.in', overwrite: 'auto' });
+        gsap.to(textSpan, { color: '#111212', duration: 0.3, textShadow: 'none', overwrite: 'auto' });
       });
     }, btnRef);
     return () => ctx.revert();
@@ -717,20 +713,23 @@ function ContactModal() {
     return () => window.removeEventListener('openContactModal', handleOpen);
   }, []);
 
+  useLayoutEffect(() => {
+    if (contentRef.current) {
+      gsap.set(contentRef.current, { y: 50, scale: 0.95, opacity: 0 });
+    }
+  }, []);
+
   useEffect(() => {
     if (!modalRef.current || !contentRef.current) return;
     
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      gsap.to(modalRef.current, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out' });
-      gsap.fromTo(contentRef.current, 
-        { y: 50, scale: 0.95, opacity: 0 }, 
-        { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)', delay: 0.1 }
-      );
+      gsap.to(modalRef.current, { opacity: 1, pointerEvents: 'auto', duration: 0.4, ease: 'power2.out', overwrite: 'auto' });
+      gsap.to(contentRef.current, { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)', delay: 0.1, overwrite: 'auto' });
     } else {
       document.body.style.overflow = 'unset';
-      gsap.to(modalRef.current, { opacity: 0, pointerEvents: 'none', duration: 0.3 });
-      gsap.to(contentRef.current, { y: 20, scale: 0.95, opacity: 0, duration: 0.3 });
+      gsap.to(modalRef.current, { opacity: 0, pointerEvents: 'none', duration: 0.3, overwrite: 'auto' });
+      gsap.to(contentRef.current, { y: 20, scale: 0.95, opacity: 0, duration: 0.3, overwrite: 'auto' });
     }
   }, [isOpen]);
 
