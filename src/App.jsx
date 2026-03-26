@@ -142,7 +142,7 @@ function Hero() {
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-start xl:items-center xl:text-center gap-8 xl:mt-12">
         <div className="flex flex-col gap-6 w-full items-start xl:items-center">
           <h1 className="hero-text text-5xl md:text-6xl lg:text-7xl font-display font-black text-[#E8E8E8] leading-[1.05] tracking-tight text-balance max-w-4xl drop-shadow-2xl">
-            ¿Querés un iPhone Pro Max <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500">original</span>, en estado impecable, a un precio que parece <span className="italic">error</span>?
+            ¿Querés un iPhone Pro Max <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500">original</span>, en estado impecable, a un precio que <span className="italic">es accesible</span>?
           </h1>
           <p className="hero-text text-lg md:text-xl lg:text-2xl font-sans text-[#8B8B8B] max-w-2xl text-balance leading-relaxed">
             Dejá de pagar de más en tiendas. Dejá de arriesgarte con vendedores dudosos. <strong className="text-[#E8E8E8] font-bold">Existe una tercera opción y está aquí.</strong>
@@ -564,7 +564,7 @@ function Protocol() {
               transformOrigin: 'top center'
             }}
           >
-            <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-auto md:w-1/2 md:h-full flex-none md:flex-1 relative overflow-hidden bg-[#111212]">
+            <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-auto md:w-1/2 md:h-auto flex-none md:flex-1 relative overflow-hidden bg-[#111212]">
               <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1A1A1A] via-transparent to-transparent z-10 w-full h-full"></div>
               <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen scale-105" />
             </div>
