@@ -665,7 +665,7 @@ function FAQ() {
   );
 }
 
-function HoverCTA({ className = '' }) {
+function HoverCTA({ className = '', isOpen = null }) {
   const btnRef = useRef(null);
 
   useEffect(() => {
@@ -676,20 +676,29 @@ function HoverCTA({ className = '' }) {
 
       gsap.set(phone, { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0 });
 
-      btn.addEventListener('mouseenter', () => {
+      const playAnim = () => {
         gsap.to(btn, { scale: 1.05, duration: 0.4, ease: 'back.out(1.5)', boxShadow: '0 0 60px rgba(232,232,232,0.3)', overwrite: 'auto' });
         gsap.to(phone, { x: 0, y: -40, rotation: -15, scale: 1.2, opacity: 0.8, duration: 0.8, ease: 'back.out(1.5)', overwrite: 'auto' });
         gsap.to(textSpan, { color: '#ffffff', duration: 0.3, textShadow: '0 2px 10px rgba(0,0,0,0.8)', overwrite: 'auto' });
-      });
+      };
 
-      btn.addEventListener('mouseleave', () => {
+      const reverseAnim = () => {
         gsap.to(btn, { scale: 1, duration: 0.4, ease: 'power2.out', boxShadow: '0 0 40px rgba(232,232,232,0.15)', overwrite: 'auto' });
         gsap.to(phone, { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0, duration: 0.5, ease: 'power2.in', overwrite: 'auto' });
         gsap.to(textSpan, { color: '#111212', duration: 0.3, textShadow: 'none', overwrite: 'auto' });
-      });
+      };
+
+      if (isOpen === true) {
+        setTimeout(playAnim, 300);
+      } else if (isOpen === false) {
+        reverseAnim();
+      }
+
+      btn.addEventListener('mouseenter', playAnim);
+      btn.addEventListener('mouseleave', reverseAnim);
     }, btnRef);
     return () => ctx.revert();
-  }, []);
+  }, [isOpen]);
 
   return (
     <a ref={btnRef} href="https://wa.me/message/YOUR_WHATSAPP_LINK" className={`relative overflow-hidden inline-flex items-center justify-center bg-[#E8E8E8] text-[#111212] px-12 md:px-16 py-6 md:py-8 text-xl md:text-2xl rounded-[2.5rem] shadow-[0_0_40px_rgba(232,232,232,0.15)] group cursor-pointer border border-[#E8E8E8] w-full max-w-lg mt-8 mb-6 ${className}`}>
@@ -744,7 +753,7 @@ function ContactModal() {
         <h3 className="text-3xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-4">Conectemos</h3>
         <p className="text-[#8B8B8B] font-sans text-lg mb-8 text-balance">Contactanos por WhatsApp o visita nuestras redes para ver catálogos y más detalles exclusivos.</p>
         
-        <HoverCTA className="!w-full !max-w-none !mt-0 !mb-8" />
+        <HoverCTA isOpen={isOpen} className="!w-full !max-w-none !mt-0 !mb-8" />
         
         <p className="text-[#8B8B8B] font-sans text-sm mb-4 font-mono uppercase tracking-widest">Nuestras Redes</p>
         <div className="flex flex-wrap items-center justify-center gap-6">
