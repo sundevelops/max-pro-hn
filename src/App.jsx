@@ -52,7 +52,7 @@ function Button({ children, className = '', href = '#', onClick }) {
       className={`group relative overflow-hidden inline-flex items-center justify-center font-semibold font-sans bg-[#44443C] text-[#E8E8E8] px-8 py-4 rounded-full transition-all duration-300 shadow-xl border border-[#443C3E]/50 hover:shadow-2xl z-10 ${className}`}
     >
       <span className="absolute inset-0 w-full h-full bg-[#E8E8E8] transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] translate-y-[100%] group-hover:translate-y-0 z-0"></span>
-      <img src={phoneImg} className="btn-flying-phone absolute w-24 h-24 object-cover opacity-0 pointer-events-none mix-blend-multiply right-0 top-1/2 -translate-y-1/2 brightness-50" />
+      <img src={phoneImg} className="btn-flying-phone absolute w-24 h-24 object-cover opacity-0 pointer-events-none mix-blend-multiply right-0 top-1/2 -translate-y-1/2 brightness-50" style={{ willChange: "transform, opacity" }} />
       <span className="relative z-10 flex items-center justify-center group-hover:text-[#111212] transition-colors duration-300">
         {children}
       </span>
@@ -237,7 +237,7 @@ function Philosophy() {
               Nosotros hacemos UNA sola cosa y la hacemos mejor que nadie:
             </h4>
             <p className="text-2xl md:text-3xl italic font-medium mt-6 text-[#8B8B8B]">
-              Vendemos exclusivamente iPhone Pro Max (14, 15 y 16) en estado mint, 100% originales, a precios de mayorista.
+              Vendemos exclusivamente iPhone Pro Max (14, 15 y 16) en estado mint, 100% originales, a un precio accesible.
             </p>
             <p className="text-lg mt-2 font-mono uppercase tracking-wider text-[#44443C]">(Diferentes modelos Pro Max vendrán pronto)</p>
           </div>
@@ -475,7 +475,7 @@ function Features() {
           
           <div className="feature-card bg-[#1A1A1A] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-10 md:p-12 shadow-2xl flex flex-col justify-center">
              <h3 className="text-3xl font-display font-bold text-[#E8E8E8] mb-4">✅ Precios Que el 95% del Mercado No Puede Igualar</h3>
-             <p className="text-[#8B8B8B] text-lg font-sans leading-relaxed">Esto no es un eslogan vacío. Es un hecho. Nuestro modelo de precios mayoristas aplicado al comprador individual significa que vas a pagar significativamente menos que en cualquier tienda tradicional o vendedor promedio. Compará. Investigá. Y después hablá con nosotros. Los números hablan solos.</p>
+             <p className="text-[#8B8B8B] text-lg font-sans leading-relaxed">Esto no es un eslogan vacío. Es un hecho. Nuestro modelo de precio accesible aplicado al comprador individual significa que vas a pagar significativamente menos que en cualquier tienda tradicional o vendedor promedio. Compará. Investigá. Y después hablá con nosotros. Los números hablan solos.</p>
           </div>
 
         </div>
@@ -631,7 +631,7 @@ function FAQ() {
     {q: '5. ¿Cómo está la batería de los equipos?', a: 'La salud de batería de nuestros iPhones va del <b>80-100%</b>, dependiendo del modelo y año. Antes de vender cualquier equipo, verificamos la batería y te informamos el porcentaje exacto.<br/><br/>¿Qué significa esto en la práctica? Que tu Pro Max <b>te va a durar todo el día sin problemas.</b> Nada de andar cargando el teléfono a cada rato como pasa con esos equipos "baratos" que venden por ahí con baterías destruidas.'},
     {q: '6. ¿Los equipos vienen con algún accesorio?', a: 'Nuestros iPhones NO vienen con <b>cargador o cable.</b> No incluimos caja original ni accesorios adicionales. ¿Por qué? Porque eso nos permite mantener los precios lo más bajos posible. Preferimos ahorrarte miles de lempiras a darte una cajita bonita que vas a guardar en un cajón.'},
     {q: '7. ¿Puedo verificar que el equipo es original antes de comprarlo?', a: '<b>¡Por supuesto!</b> Te animamos a que lo hagás. Podés revisar el estado de las piezas en los ajustes del iPhone, y confirmar que todo es 100% original de fábrica. No tenemos nada que esconder — al contrario, queremos que lo comprobes vos mismo.'},
-    {q: '8. ¿Por qué sus precios son tan bajos? ¿Cuál es el truco?', a: '<b>No hay truco.</b> Hay un modelo de negocio inteligente.<br/><br/>Las tiendas tradicionales compran a intermediarios, que compraron a otros intermediarios, que compraron a distribuidores. Cada eslabón de esa cadena agrega su margen. <b>Vos terminás pagando el teléfono + la ganancia de 3 o 4 personas.</b><br/><br/>Nosotros nos saltamos todo eso. Accedemos a inventario premium directamente y trasladamos ese ahorro <b>directo a vos.</b> Es precio de mayorista para el comprador individual. Así de simple.'},
+    {q: '8. ¿Por qué sus precios son tan bajos? ¿Cuál es el truco?', a: '<b>No hay truco.</b> Hay un modelo de negocio inteligente.<br/><br/>Las tiendas tradicionales compran a intermediarios, que compraron a otros intermediarios, que compraron a distribuidores. Cada eslabón de esa cadena agrega su margen. <b>Vos terminás pagando el teléfono + la ganancia de 3 o 4 personas.</b><br/><br/>Nosotros nos saltamos todo eso. Accedemos a inventario premium directamente y trasladamos ese ahorro <b>directo a vos.</b> Es un precio accesible para el comprador individual. Así de simple.'},
     {q: '9. ¿Cuánto cuesta un iPhone Pro Max con ustedes?', a: 'Los precios varían según el modelo, capacidad y disponibilidad. Lo que sí te podemos garantizar es que <b>nuestro precio va a ser significativamente menor que el 95% de los vendedores en Honduras.</b><br/><br/>¿Querés saber el precio exacto del modelo que te interesa? <b>Escribinos por WhatsApp</b> y te damos la cotización al instante. Sin compromiso, sin presión.'},
     {q: '10. ¿Qué métodos de pago aceptan?', a: 'Aceptamos <b>transferencia bancaria, depósito y efectivo.</b> Queremos que tu compra sea lo más fácil y cómoda posible. Los detalles exactos te los damos cuando nos contactés por WhatsApp.'},
     {q: '11. ¿Qué cubre exactamente la garantía de 14 días?', a: 'Nuestra garantía cubre <b>cualquier defecto de fábrica</b> que se presente en los primeros 14 días después de tu compra. Si algo falla por un problema de manufactura — no por golpes, caídas o daño por agua — te ofrecemos:<br/>- 🔄 <b>Cambio por otro equipo</b>, o<br/>- 💰 <b>Devolución completa de tu dinero.</b><br/><br/><b>Vos elegís.</b> Sin letras pequeñas, sin excusas, sin vueltas.'},
@@ -667,6 +667,7 @@ function FAQ() {
 
 function HoverCTA({ className = '', isOpen = null }) {
   const btnRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -678,18 +679,20 @@ function HoverCTA({ className = '', isOpen = null }) {
 
       const playAnim = () => {
         gsap.to(btn, { scale: 1.05, duration: 0.4, ease: 'back.out(1.5)', boxShadow: '0 0 60px rgba(232,232,232,0.3)', overwrite: 'auto' });
-        gsap.to(phone, { x: 0, y: -40, rotation: -15, scale: 1.2, opacity: 0.8, duration: 0.8, ease: 'back.out(1.5)', overwrite: 'auto' });
+        gsap.to(phone, { x: 0, y: -40, rotation: -15, scale: 1.2, opacity: 0.8, duration: 0.8, ease: 'back.out(1.5)', overwrite: 'auto', force3D: true });
         gsap.to(textSpan, { color: '#ffffff', duration: 0.3, textShadow: '0 2px 10px rgba(0,0,0,0.8)', overwrite: 'auto' });
       };
 
       const reverseAnim = () => {
         gsap.to(btn, { scale: 1, duration: 0.4, ease: 'power2.out', boxShadow: '0 0 40px rgba(232,232,232,0.15)', overwrite: 'auto' });
-        gsap.to(phone, { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0, duration: 0.5, ease: 'power2.in', overwrite: 'auto' });
+        gsap.to(phone, { x: 300, y: 150, rotation: 120, scale: 0.2, opacity: 0, duration: 0.5, ease: 'power2.in', overwrite: 'auto', force3D: true });
         gsap.to(textSpan, { color: '#111212', duration: 0.3, textShadow: 'none', overwrite: 'auto' });
       };
 
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
       if (isOpen === true) {
-        setTimeout(playAnim, 300);
+        timeoutRef.current = setTimeout(playAnim, 300);
       } else if (isOpen === false) {
         reverseAnim();
       }
@@ -697,12 +700,15 @@ function HoverCTA({ className = '', isOpen = null }) {
       btn.addEventListener('mouseenter', playAnim);
       btn.addEventListener('mouseleave', reverseAnim);
     }, btnRef);
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    }
   }, [isOpen]);
 
   return (
     <a ref={btnRef} href="https://api.whatsapp.com/send?phone=50487866985&text=Hola,%20me%20interesa%20un%20iPhone%20Pro%20Max" target="_blank" rel="noopener noreferrer" className={`relative overflow-hidden inline-flex items-center justify-center bg-[#E8E8E8] text-[#111212] px-12 md:px-16 py-6 md:py-8 text-xl md:text-2xl rounded-[2.5rem] shadow-[0_0_40px_rgba(232,232,232,0.15)] group cursor-pointer border border-[#E8E8E8] w-full max-w-lg mt-8 mb-6 ${className}`}>
-      <img src={phoneImg} className="flying-phone absolute w-64 h-64 object-cover rounded-[3rem] opacity-0 pointer-events-none right-0 top-0 shadow-2xl brightness-50" />
+      <img src={phoneImg} className="flying-phone absolute w-64 h-64 object-cover rounded-[3rem] opacity-0 pointer-events-none right-0 top-0 shadow-2xl brightness-50" style={{ willChange: "transform, opacity" }} />
       <span className="cta-text relative z-10 flex items-center justify-center text-center font-display font-black tracking-tight transition-colors duration-300">
         <svg className="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
         Contactar a Ventas
