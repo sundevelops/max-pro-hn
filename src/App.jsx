@@ -845,7 +845,7 @@ function ContactModal() {
           <a href="https://www.instagram.com/maxprohn/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 md:w-16 md:h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
             <Instagram className="w-6 h-6 md:w-7 md:h-7 transform group-hover:scale-110 transition-transform" />
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61576328786119" target="_blank" rel="noopener noreferrer" className="w-14 h-14 md:w-16 md:h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
+          <a href="https://www.facebook.com/profile.php?id=61571001415237" target="_blank" rel="noopener noreferrer" className="w-14 h-14 md:w-16 md:h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
             <Facebook className="w-6 h-6 md:w-7 md:h-7 transform group-hover:scale-110 transition-transform" />
           </a>
           <a href="https://www.tiktok.com/@maxprohn" target="_blank" rel="noopener noreferrer" className="w-14 h-14 md:w-16 md:h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
@@ -880,7 +880,7 @@ function GetStarted() {
           <a href="https://www.instagram.com/maxprohn/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
             <Instagram className="w-7 h-7 transform group-hover:scale-110 transition-transform" />
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61576328786119" target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
+          <a href="https://www.facebook.com/profile.php?id=61571001415237" target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
             <Facebook className="w-7 h-7 transform group-hover:scale-110 transition-transform" />
           </a>
           <a href="https://www.tiktok.com/@maxprohn" target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-[1.5rem] border border-[#443C3E] bg-[#111212] shadow-xl flex items-center justify-center text-[#E8E8E8] hover:bg-[#E8E8E8] hover:text-[#111212] transition-colors group cursor-pointer">
