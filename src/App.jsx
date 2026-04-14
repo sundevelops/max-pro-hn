@@ -20,6 +20,35 @@ const isInAppBrowser = () => {
          (ua.indexOf("TikTok") > -1);
 };
 
+const isTikTokBrowser = () => {
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  return (ua.indexOf("TikTok") > -1);
+};
+
+function TikTokBlockerModal() {
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-[#111212] font-sans">
+      <div className="relative bg-[#1A1A1A] border border-pink-500/40 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-full max-w-lg flex flex-col items-center text-center overflow-hidden">
+        
+        <div className="w-20 h-20 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 rounded-[1.5rem] flex items-center justify-center mb-8 drop-shadow-[0_0_20px_rgba(236,72,153,0.4)]">
+          <Instagram className="w-10 h-10 text-white" />
+        </div>
+        
+        <h3 className="text-3xl md:text-4xl font-display font-black text-[#E8E8E8] tracking-tight mb-4 leading-tight">Experiencia Limitada</h3>
+        <p className="text-[#8B8B8B] font-sans text-lg mb-8 leading-relaxed text-balance">
+          El navegador interno de TikTok bloquea funciones críticas de nuestra tienda.<br/><br/>
+          Para ver nuestro catálogo y comprar sin interrupciones, por favor haz clic abajo y <strong>contáctanos directamente desde nuestro Instagram oficial.</strong>
+        </p>
+
+        <a href="https://www.instagram.com/maxprohn/" target="_top" rel="noopener noreferrer" className="relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold px-10 py-5 text-lg md:text-xl rounded-full shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:scale-105 transition-all duration-300 w-full cursor-pointer border border-pink-400/50">
+          <Instagram className="w-6 h-6 mr-3" />
+          Ir a Instagram
+        </a>
+      </div>
+    </div>
+  );
+}
+
 // --- DESIGN TOKENS ---
 // Primary bg: Woodsmoke #111212
 // Texts: Primary #E8E8E8, Secondary #8B8B8B
@@ -1010,14 +1039,20 @@ function GlobalStars() {
 }
 
 export default function App() {
+  const isTikTok = isTikTokBrowser();
+
   useEffect(() => {
     if (window.location.hash === '#whatsapp') {
       window.history.replaceState(null, '', window.location.pathname);
       if (!isInAppBrowser()) {
-        window.location.href = "https://api.whatsapp.com/send?phone=50487866985&text=Hola,%20me%20interesa%20un%20iPhone%20Pro%20Max";
+        window.location.href = "whatsapp://send?phone=50487866985&text=Hola,%20me%20interesa%20un%20iPhone%20Pro%20Max";
       }
     }
   }, []);
+
+  if (isTikTok) {
+    return <TikTokBlockerModal />;
+  }
 
   return (
     <div className="bg-[#111212] min-h-screen font-sans selection:bg-[#E8E8E8] selection:text-[#111212] relative">
