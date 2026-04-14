@@ -717,6 +717,7 @@ function HoverCTA({ className = '', isOpen = null }) {
   const handleClick = (e) => {
     if (isInAppBrowser()) {
       e.preventDefault();
+      window.location.hash = 'whatsapp';
       window.dispatchEvent(new CustomEvent('openInAppAlertModal'));
     }
   };
@@ -1009,6 +1010,15 @@ function GlobalStars() {
 }
 
 export default function App() {
+  useEffect(() => {
+    if (window.location.hash === '#whatsapp') {
+      window.history.replaceState(null, '', window.location.pathname);
+      if (!isInAppBrowser()) {
+        window.location.href = "https://api.whatsapp.com/send?phone=50487866985&text=Hola,%20me%20interesa%20un%20iPhone%20Pro%20Max";
+      }
+    }
+  }, []);
+
   return (
     <div className="bg-[#111212] min-h-screen font-sans selection:bg-[#E8E8E8] selection:text-[#111212] relative">
       <GlobalStars />
