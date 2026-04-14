@@ -766,15 +766,15 @@ function InAppAlertModal() {
   return (
     <div ref={modalRef} className="fixed inset-0 z-[2000] flex items-center justify-center p-4 opacity-0 pointer-events-none">
       <div className="absolute inset-0 bg-[#111212]/90 backdrop-blur-xl" onClick={() => setIsOpen(false)}></div>
-      <div ref={contentRef} className="relative bg-[#1A1A1A] border border-red-500/40 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-full max-w-lg flex flex-col items-center text-center z-10 overflow-hidden">
+      <div ref={contentRef} className="relative bg-[#1A1A1A] border border-green-500/40 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-full max-w-lg flex flex-col items-center text-center z-10 overflow-hidden">
         <button onClick={() => setIsOpen(false)} className="absolute top-6 right-6 text-[#8B8B8B] hover:text-[#E8E8E8] transition-colors p-2 bg-[#111212] rounded-full border border-[#2A2A2A]">
           <X className="w-6 h-6" />
         </button>
         
-        <Lock className="w-16 h-16 text-yellow-500/80 mb-6 drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]" />
-        <h3 className="text-3xl md:text-4xl font-display font-black text-[#E8E8E8] tracking-tight mb-4 leading-tight">Acción Bloqueada</h3>
-        <p className="text-[#8B8B8B] font-sans text-lg mb-8 leading-relaxed">
-          Las aplicaciones como TikTok / Facebook bloquean la apertura predeterminada de WhatsApp. Para enviarnos un mensaje directo, realiza estos dos pasos:
+        <svg className="w-16 h-16 text-green-500 mb-6 drop-shadow-[0_0_15px_rgba(34,197,94,0.4)]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <h3 className="text-3xl md:text-4xl font-display font-black text-[#E8E8E8] tracking-tight mb-4 leading-tight">Enlace de WhatsApp</h3>
+        <p className="text-[#8B8B8B] font-sans text-lg mb-8 leading-relaxed text-balance">
+          ¡Estás a un solo paso! Para ir a nuestro chat y ver el catálogo cómodamente, por favor completa estos rápidos pasos:
         </p>
         
         <div className="w-full bg-[#111212] border border-[#2A2A2A] rounded-2xl p-6 flex flex-col gap-4">
