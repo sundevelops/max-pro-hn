@@ -8,7 +8,7 @@ import protocolImg1 from './assets/Gemini_Generated_Image_njil1enjil1enjil-2.png
 import protocolImg2 from './assets/Gemini_Generated_Image_njil1enjil1enjil-4.png';
 import protocolImg3 from './assets/Gemini_Generated_Image_njil1enjil1enjil-3.png';
 
-import { Box, Activity, Battery, ShieldCheck, CheckCircle, ArrowRight, Instagram, Facebook, Smartphone, Plus, Minus, X, Menu, Lock } from 'lucide-react';
+import { Box, Activity, Battery, ShieldCheck, CheckCircle, ArrowRight, Instagram, Facebook, Smartphone, Plus, Minus, X, Menu, Lock, Copy, Check } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,9 +29,16 @@ const isTikTokBrowser = () => {
 };
 
 function TikTokBlockerModal() {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText("+50487866985");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-[#111212] font-sans">
-      <div className="relative bg-[#1A1A1A] border border-pink-500/40 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-full max-w-lg flex flex-col items-center text-center overflow-hidden">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center p-4 bg-[#111212] font-sans overflow-y-auto">
+      <div className="relative bg-[#1A1A1A] border border-pink-500/40 p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.8)] w-full max-w-lg flex flex-col items-center text-center my-auto shrink-0">
         
         <div className="w-20 h-20 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 rounded-[1.5rem] flex items-center justify-center mb-8 drop-shadow-[0_0_20px_rgba(236,72,153,0.4)]">
           <Instagram className="w-10 h-10 text-white" />
@@ -43,10 +50,44 @@ function TikTokBlockerModal() {
           Para ver nuestro catálogo y comprar sin interrupciones, por favor haz clic abajo y <strong>contáctanos directamente desde nuestro Instagram oficial.</strong>
         </p>
 
-        <a href="https://www.instagram.com/maxprohn/" target="_top" rel="noopener noreferrer" className="relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold px-10 py-5 text-lg md:text-xl rounded-full shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:scale-105 transition-all duration-300 w-full cursor-pointer border border-pink-400/50">
+        <a href="https://www.instagram.com/maxprohn/" target="_top" rel="noopener noreferrer" className="relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold px-10 py-5 text-lg md:text-xl rounded-full shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:scale-105 transition-all duration-300 w-full cursor-pointer border border-pink-400/50 mb-8">
           <Instagram className="w-6 h-6 mr-3" />
           Ir a Instagram
         </a>
+
+        <div className="w-full pt-8 border-t border-[#2A2A2A] flex flex-col items-center">
+          <p className="text-[#8B8B8B] font-sans text-sm md:text-base mb-4 text-balance">O si prefieres, escríbenos directamente en WhatsApp usando este número:</p>
+          <button onClick={handleCopy} className="flex items-center justify-between gap-4 bg-[#111212] border border-[#2A2A2A] rounded-2xl p-4 w-full md:w-auto hover:border-[#25D366]/50 transition-colors group">
+            <div className="w-10 h-10 bg-[#25D366] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(37,211,102,0.3)] shrink-0">
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            </div>
+            <span className="font-display font-bold text-[#E8E8E8] text-xl tracking-wider select-text flex-1 text-center">+504 8786-6985</span>
+            <div className={`p-2 rounded-lg transition-colors shrink-0 ${copied ? 'bg-green-500/20 text-green-400' : 'bg-[#1A1A1A] text-[#8B8B8B] group-hover:text-[#E8E8E8]'}`}>
+              {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function WhatsAppRedirectOverlay() {
+  return (
+    <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-center p-6 bg-[#111212] font-sans">
+      <div className="w-32 h-32 bg-[#25D366] rounded-[2rem] flex items-center justify-center mb-10 shadow-[0_0_60px_rgba(37,211,102,0.4)] animate-pulse">
+        <svg className="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.052 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      </div>
+      <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-6 text-center">Abriendo WhatsApp...</h2>
+      <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-2xl p-6 md:p-8 max-w-lg w-full text-center shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent opacity-50"></div>
+        <p className="text-[#8B8B8B] font-sans text-lg md:text-xl leading-relaxed relative z-10">
+          El sistema está intentando abrir otra aplicación.
+        </p>
+        <p className="text-[#E8E8E8] font-sans text-xl md:text-2xl font-bold mt-4 leading-relaxed relative z-10">
+          Por favor, selecciona <span className="text-[#25D366]">"Permitir"</span> o <span className="text-[#25D366]">"Abrir"</span> en la ventana emergente que aparece en tu pantalla para ir directamente al chat.
+        </p>
       </div>
     </div>
   );
@@ -749,6 +790,7 @@ function HoverCTA({ className = '', isOpen = null }) {
   const handleClick = (e) => {
     if (isInAppBrowser()) {
       e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'instant' });
       window.location.hash = 'whatsapp';
       window.dispatchEvent(new CustomEvent('openInAppAlertModal'));
     }
@@ -1043,11 +1085,13 @@ function GlobalStars() {
 
 export default function App() {
   const isTikTok = isTikTokBrowser();
+  const [isRedirectingToWhatsApp, setIsRedirectingToWhatsApp] = useState(false);
 
   useEffect(() => {
     if (window.location.hash === '#whatsapp') {
       window.history.replaceState(null, '', window.location.pathname);
       if (!isInAppBrowser()) {
+        setIsRedirectingToWhatsApp(true);
         window.location.href = "whatsapp://send?phone=50487866985&text=Hola,%20me%20interesa%20un%20iPhone%20Pro%20Max";
       }
     }
@@ -1055,6 +1099,10 @@ export default function App() {
 
   if (isTikTok) {
     return <TikTokBlockerModal />;
+  }
+
+  if (isRedirectingToWhatsApp) {
+    return <WhatsAppRedirectOverlay />;
   }
 
   return (
