@@ -298,7 +298,7 @@ function ProofMetrics() {
     <section id="features" className="py-24 px-6 bg-[#111212] relative z-20 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-12 text-center md:text-left">
-          ¿Por qué nos creés?
+          ¿Por qué deberías confiar en nosotros?
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
