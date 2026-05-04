@@ -303,9 +303,9 @@ function ProofMetrics() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 hover:border-[#443C3E] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 min-w-[320px]">
-            <p className="font-display font-black text-[56px] text-[#E8E8E8] leading-none mb-2">1000+</p>
+            <p className="font-display font-black text-[56px] text-[#E8E8E8] leading-none mb-2">50+</p>
             <h3 className="font-display font-bold text-2xl text-[#E8E8E8] mb-3">Equipos Vendidos</h3>
-            <p className="font-sans text-[15px] text-[#8B8B8B] leading-relaxed">Sin problemas. Sin devoluciones. Clientes satisfechos en Tegucigalpa y más allá.</p>
+            <p className="font-sans text-[15px] text-[#8B8B8B] leading-relaxed">Sin problemas. Sin devoluciones. Clientes satisfechos en Tegucigalpa en nuestro corto tiempo en el mercado.</p>
           </div>
           
           <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 hover:border-[#443C3E] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 min-w-[320px]">
