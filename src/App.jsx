@@ -370,9 +370,12 @@ function ModelsAvailable() {
   return (
     <section id="productos" className="py-24 px-6 bg-[#111212] relative z-20">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-12 text-center md:text-left">
+        <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-4 text-center md:text-left">
           Modelos Disponibles Ahora
         </h2>
+        <p className="text-[#8B8B8B] font-sans text-lg md:text-xl mb-12 text-center md:text-left font-medium">
+          * El precio exacto depende del porcentaje de batería.
+        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* 14 Pro Max */}
@@ -380,7 +383,10 @@ function ModelsAvailable() {
             <h3 className="font-display font-black text-[36px] text-[#E8E8E8] mb-2 tracking-tight">14 Pro Max</h3>
             <p className="font-mono font-bold text-[14px] text-[#8B8B8B] tracking-[0.14em] uppercase mb-8">256GB</p>
             <div className="mt-auto flex flex-col items-center">
-              <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none mb-4">L15,800</p>
+              <div className="flex items-baseline justify-center gap-2 mb-4">
+                <span className="text-[#8B8B8B] font-bold text-xl uppercase tracking-wider">desde</span>
+                <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none">L15,800</p>
+              </div>
               <div className="bg-[#4ADE80]/10 border border-[#4ADE80]/20 px-4 py-2 rounded-full">
                 <p className="font-mono font-bold text-[13px] text-[#4ADE80] tracking-wide">Battery: 75–100%</p>
               </div>
@@ -392,7 +398,10 @@ function ModelsAvailable() {
             <h3 className="font-display font-black text-[36px] text-[#E8E8E8] mb-2 tracking-tight">15 Pro Max</h3>
             <p className="font-mono font-bold text-[14px] text-[#8B8B8B] tracking-[0.14em] uppercase mb-8">256GB</p>
             <div className="mt-auto flex flex-col items-center">
-              <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none mb-4">L18,500</p>
+              <div className="flex items-baseline justify-center gap-2 mb-4">
+                <span className="text-[#8B8B8B] font-bold text-xl uppercase tracking-wider">desde</span>
+                <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none">L18,500</p>
+              </div>
               <div className="bg-[#4ADE80]/10 border border-[#4ADE80]/20 px-4 py-2 rounded-full">
                 <p className="font-mono font-bold text-[13px] text-[#4ADE80] tracking-wide">Battery: 80–100%</p>
               </div>
@@ -404,7 +413,10 @@ function ModelsAvailable() {
             <h3 className="font-display font-black text-[36px] text-[#E8E8E8] mb-2 tracking-tight">16 Pro Max</h3>
             <p className="font-mono font-bold text-[14px] text-[#8B8B8B] tracking-[0.14em] uppercase mb-8">256GB</p>
             <div className="mt-auto flex flex-col items-center">
-              <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none mb-4">L24,800</p>
+              <div className="flex items-baseline justify-center gap-2 mb-4">
+                <span className="text-[#8B8B8B] font-bold text-xl uppercase tracking-wider">desde</span>
+                <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none">L24,800</p>
+              </div>
               <div className="bg-[#4ADE80]/10 border border-[#4ADE80]/20 px-4 py-2 rounded-full">
                 <p className="font-mono font-bold text-[13px] text-[#4ADE80] tracking-wide">Battery: 90–100%</p>
               </div>
