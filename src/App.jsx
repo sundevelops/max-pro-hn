@@ -274,7 +274,7 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#111212] via-[#111212]/80 to-[#111212]/20"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-start xl:items-center xl:text-center gap-8 xl:mt-12">
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-start xl:items-center xl:text-center gap-8 mt-24 md:mt-16 xl:mt-12">
         <div className="flex flex-col gap-6 w-full items-start xl:items-center">
           <h1 className="hero-text text-5xl md:text-6xl lg:text-7xl font-display font-black text-[#E8E8E8] leading-[1.05] tracking-tight text-balance max-w-4xl drop-shadow-2xl">
             ¿Querés un iPhone Pro Max <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500">original</span>, en estado impecable, a un precio que <span className="italic">es accesible</span>?
