@@ -3,10 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoImg from './assets/Max Pro HN logo.jpg';
 import phoneImg from './assets/Gemini_Generated_Image_b3a8xhb3a8xhb3a8.png';
-import textureImg from './assets/Gemini_Generated_Image_njil1enjil1enjil.png';
-import protocolImg1 from './assets/Gemini_Generated_Image_njil1enjil1enjil-2.png';
-import protocolImg2 from './assets/Gemini_Generated_Image_njil1enjil1enjil-4.png';
-import protocolImg3 from './assets/Gemini_Generated_Image_njil1enjil1enjil-3.png';
+
 
 import { Box, Activity, Battery, ShieldCheck, CheckCircle, ArrowRight, Instagram, Facebook, Smartphone, Plus, Minus, X, Menu, Lock, Copy, Check } from 'lucide-react';
 
@@ -148,6 +145,58 @@ function Button({ children, className = '', href = '#', onClick }) {
   );
 }
 
+function TopBanner() {
+  return (
+    <div className="fixed top-0 left-0 w-full flex justify-center items-start pt-3 z-[110] pointer-events-none">
+      <svg width="0" height="0" className="absolute pointer-events-none">
+        <defs>
+          <filter id="elegant-flag-ripple">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01 0.02" numOctaves="2" result="noise">
+              <animate attributeName="baseFrequency" values="0.01 0.02;0.012 0.025;0.01 0.02" dur="6s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
+
+      <div className="relative animate-sway-flag shadow-[0_10px_30px_rgba(0,0,0,0.6)] pointer-events-auto rounded-[2px]"
+           style={{ minWidth: 'min(92vw, 800px)', height: '54px' }}>
+           
+        <div className="absolute inset-0 w-full h-full flex flex-col rounded-[2px] overflow-hidden" style={{ filter: 'url(#elegant-flag-ripple)' }}>
+           <div className="flex-1 bg-[#00BCE4]"></div>
+           <div className="flex-1 bg-white relative"></div>
+           <div className="flex-1 bg-[#00BCE4]"></div>
+
+           <div className="absolute inset-0 w-full h-full animate-flag-wind mix-blend-multiply opacity-[0.25]"></div>
+        </div>
+
+        <div className="absolute inset-0 flex items-center justify-between px-4 md:px-8 pointer-events-none">
+           <div className="relative w-8 h-[14px] text-[#00BCE4] flex-shrink-0">
+             <span className="absolute top-0 left-0 text-[7px] leading-none">★</span>
+             <span className="absolute top-0 right-0 text-[7px] leading-none">★</span>
+             <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[7px] leading-none">★</span>
+             <span className="absolute bottom-0 left-0 text-[7px] leading-none">★</span>
+             <span className="absolute bottom-0 right-0 text-[7px] leading-none">★</span>
+           </div>
+
+           <span className="font-sans font-black tracking-wide text-[#071320] text-[10px] md:text-[13px] uppercase text-center px-4"
+                 style={{ textShadow: '0 1px 1px rgba(255,255,255,1), 0 0 8px rgba(255,255,255,0.8)' }}>
+             ¡Pronto estaremos expandiendo y haciendo envíos a nivel nacional!
+           </span>
+
+           <div className="relative w-8 h-[14px] text-[#00BCE4] flex-shrink-0">
+             <span className="absolute top-0 left-0 text-[7px] leading-none">★</span>
+             <span className="absolute top-0 right-0 text-[7px] leading-none">★</span>
+             <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[7px] leading-none">★</span>
+             <span className="absolute bottom-0 left-0 text-[7px] leading-none">★</span>
+             <span className="absolute bottom-0 right-0 text-[7px] leading-none">★</span>
+           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -162,16 +211,15 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'bg-transparent'}`}>
+      <nav className={`fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'top-[4.5rem] bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'top-[5.5rem] bg-transparent'}`}>
         <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center space-x-3 cursor-pointer group">
           <img src={logoImg} alt="Max Pro HN Logo" className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(232,232,232,0.3)] filter contrast-125 brightness-110 rounded-xl transform group-hover:scale-105 transition-transform" />
           <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-[#E8E8E8]">Max Pro HN</span>
         </a>
         <div className="hidden md:flex items-center space-x-10 text-sm font-semibold text-[#8B8B8B] tracking-wide">
           <a href="#features" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Ventajas</a>
-          <a href="#philosophy" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Filosofía</a>
-          <a href="#protocol" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Garantía</a>
-          <a href="#faq" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">FAQ</a>
+          <a href="#productos" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Productos</a>
+          <a href="#faq" className="hover:text-[#E8E8E8] transition hover:-translate-y-px">Preguntas Frecuentes</a>
         </div>
         <div className="flex items-center space-x-4">
           <Button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="hidden md:inline-flex !px-6 !py-2.5 !text-sm tracking-wide">
@@ -186,9 +234,8 @@ function Navbar() {
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 z-[90] bg-[#111212]/95 backdrop-blur-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] flex flex-col items-center justify-center space-y-8 ${menuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-full'}`}>
         <a href="#features" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Ventajas</a>
-        <a href="#philosophy" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Filosofía</a>
-        <a href="#protocol" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Garantía</a>
-        <a href="#faq" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">FAQ</a>
+        <a href="#productos" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Productos</a>
+        <a href="#faq" onClick={() => setMenuOpen(false)} className="text-3xl font-display font-bold text-[#E8E8E8] hover:text-[#8B8B8B] transition-colors px-8 py-3">Preguntas Frecuentes</a>
         <div className="mt-8">
           <Button onClick={() => { setMenuOpen(false); window.dispatchEvent(new CustomEvent('openContactModal')); }} className="!px-10 !py-4 !text-lg tracking-wide">
             Lo Quiero
@@ -246,439 +293,124 @@ function Hero() {
   );
 }
 
-function Philosophy() {
-  const philRef = useRef(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to('.parallax-bg', {
-        scrollTrigger: {
-          trigger: philRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        },
-        y: 150, ease: 'none'
-      });
-
-      gsap.from('.phil-fade', {
-        scrollTrigger: { trigger: philRef.current, start: 'top 70%' },
-        opacity: 0, y: 30, stagger: 0.15, duration: 1, ease: 'power2.out'
-      });
-    }, philRef);
-    return () => ctx.revert();
-  }, []);
-
+function ProofMetrics() {
   return (
-    <section id="philosophy" ref={philRef} className="relative w-full py-32 md:py-48 overflow-hidden bg-[#111212] border-y border-[#1A1A1A]">
-      <div className="absolute inset-0 w-full h-full opacity-10">
-        <img src={textureImg} alt="Texture" className="parallax-bg w-[110%] h-[120%] -top-[10%] -left-[5%] object-cover mix-blend-screen" />
-      </div>
-      
-      <div className="relative z-10 max-w-4xl mx-auto px-6 flex flex-col gap-12 text-[#8B8B8B] font-sans text-xl md:text-2xl leading-relaxed text-balance">
-        
-        <h2 className="phil-fade text-5xl md:text-7xl font-display font-black tracking-tighter text-[#E8E8E8] leading-[1.05]">
-          Seamos honestos. <br/>
-          <span className="text-[#8B8B8B] italic text-4xl md:text-5xl lg:text-6xl font-medium mt-4 block">Comprar un iPhone Pro Max en Honduras se siente como un castigo.</span>
+    <section id="features" className="py-24 px-6 bg-[#111212] relative z-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-12 text-center md:text-left">
+          ¿Por qué nos creés?
         </h2>
-
-        <p className="phil-fade">
-          Si lo comprás "nuevo" en una tienda, te sacan un ojo, y el otro. Precios inflados, márgenes absurdos, y al final del día… estás pagando miles de lempiras de más por el mismo teléfono que podrías conseguir a una fracción del costo.
-        </p>
         
-        <p className="phil-fade font-bold text-[#E8E8E8]">Pero la alternativa tampoco es bonita.</p>
-
-        <p className="phil-fade">
-          Comprás un "usado" o "seminuevo" de un vendedor random en redes sociales y te arriesgás a recibir:
-        </p>
-
-        <ul className="phil-fade space-y-6 my-6 pl-6 border-l-2 border-[#443C3E]">
-          <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">📱</span><span className="flex-1">Un teléfono que fue <strong className="text-[#E8E8E8]">abierto y reparado con piezas chinas baratas.</strong></span></li>
-          <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">🔋</span><span className="flex-1">Una batería que no es original, es adulterada, y que no te dura ni medio día.</span></li>
-          <li className="flex items-start gap-4"><span className="text-2xl mt-1 text-[#E8E8E8]">🚫</span><span className="flex-1">Un equipo <strong className="text-[#E8E8E8]">manipulado</strong> que por fuera parece perfecto… pero por dentro es una bomba de tiempo.</span></li>
-        </ul>
-
-        <p className="phil-fade text-2xl md:text-3xl text-[#E8E8E8] font-bold">
-          Y lo peor: no tenés garantía. Si algo falla, perdiste tu dinero. Así de simple.
-        </p>
-
-        <p className="phil-fade">
-          Esa es la realidad que vive la gente que quiere comprar estos tipos de teléfonos en este país. Quieren lo mejor de Apple: la cámara Pro, la pantalla inmensa, el rendimiento brutal del Pro Max, pero sienten que tienen que elegir entre <strong className="text-[#E8E8E8]">quemarse el bolsillo</strong> o <strong className="text-[#E8E8E8]">jugársela con un vendedor desconocido.</strong>
-        </p>
-
-        <div className="phil-fade mt-16 bg-[#1A1A1A] p-8 md:p-16 rounded-[3rem] border border-[#443C3E]/60 shadow-2xl relative">
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-[#E8E8E8] mb-8 tracking-tight leading-tight">
-            ¿Y si te dijera que hay una tercera opción?
-          </h3>
-          
-          <p className="mb-8">
-            Una opción donde conseguís un iPhone Pro Max <strong className="text-[#E8E8E8]">100% original, sin manipular, en condición impecable</strong>… a un precio que el <strong className="text-[#E8E8E8]">95% de los vendedores en Honduras simplemente no pueden igualar.</strong>
-          </p>
-
-          <p className="mb-12">
-            No es magia. No es estafa. No es "refurbished."<br/>
-            Es <strong className="text-[#E8E8E8]">Max Pro HN.</strong> Nosotros no somos una tienda más. No vendemos de todo un poco. No vendemos Samsung, no vendemos Xiaomi, no vendemos accesorios random.
-          </p>
-
-          <div className="border-l-4 border-[#E8E8E8] pl-6 md:pl-10 py-2 mb-12">
-            <h4 className="text-3xl md:text-5xl font-display font-bold text-[#E8E8E8] leading-[1.1] tracking-tight">
-              Nosotros hacemos UNA sola cosa y la hacemos mejor que nadie:
-            </h4>
-            <p className="text-2xl md:text-3xl italic font-medium mt-6 text-[#8B8B8B]">
-              Vendemos exclusivamente iPhone Pro Max (14, 15 y 16) en estado mint, 100% originales, a un precio accesible.
-            </p>
-            <p className="text-lg mt-2 font-mono uppercase tracking-wider text-[#44443C]">(Diferentes modelos Pro Max vendrán pronto)</p>
-          </div>
-
-          <p>
-            ¿Cómo lo logramos? Simple. Nos saltamos la cadena de intermediarios. Accedemos a inventario de calidad premium directamente y trasladamos ese ahorro <strong className="text-[#E8E8E8]">directo a vos.</strong><br/>
-            Sin inflación de tienda. Sin márgenes abusivos. Sin sorpresas.
-          </p>
-        </div>
-
-        <div className="phil-fade mt-8 flex justify-center w-full">
-          <Button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="!px-12 !py-6 !text-lg !font-bold">
-            Solicitar Catálogo
-          </Button>
-        </div>
-
-      </div>
-    </section>
-  );
-}
-
-function DiagnosticShuffler() {
-  const [cards, setCards] = useState([
-    { id: 1, title: 'Mint Condition', desc: 'Detalles mínimos.' },
-    { id: 2, title: 'Prácticamente Nuevo', desc: 'Recién sacado de caja.' },
-    { id: 3, title: 'Detalles Estéticos', desc: 'Leves y superficiales.' }
-  ]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCards(prev => {
-        const newArr = [...prev];
-        const last = newArr.pop();
-        newArr.unshift(last);
-        return newArr;
-      });
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="relative h-[220px] w-full flex items-center justify-center">
-      {cards.map((card, i) => {
-        const scale = 1 - i * 0.06;
-        const yOffset = i * 20;
-        const opacity = Math.max(0.2, 1 - i * 0.35);
-        
-        return (
-          <div 
-            key={card.id}
-            className="absolute bg-[#1A1A1A] rounded-2xl p-6 border border-[#443C3E]/60 w-[85%] text-center transition-all duration-[800ms] shadow-2xl"
-            style={{ 
-              transform: `translateY(${yOffset}px) scale(${scale})`, 
-              opacity,
-              zIndex: 10 - i,
-              transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
-            }}
-          >
-            <ShieldCheck className="w-10 h-10 text-[#E8E8E8] mx-auto mb-3 drop-shadow-[0_0_12px_rgba(232,232,232,0.3)]" />
-            <h4 className="font-display font-bold text-[#E8E8E8] text-xl">{card.title}</h4>
-            <p className="font-mono text-sm text-[#8B8B8B] mt-2">{card.desc}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function TelemetryTypewriter() {
-  const fullText = "Verificando componentes... Placa base original. Pantalla original. Cero piezas chinas... Autenticidad original 100% confirmada.";
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (index < fullText.length) {
-      const timeout = setTimeout(() => {
-        setText(prev => prev + fullText.charAt(index));
-        setIndex(index + 1);
-      }, 40);
-      return () => clearTimeout(timeout);
-    } else {
-      const reset = setTimeout(() => {
-        setText("");
-        setIndex(0);
-      }, 5000);
-      return () => clearTimeout(reset);
-    }
-  }, [index, fullText]);
-
-  return (
-    <div className="h-[220px] w-full bg-[#111212]/80 rounded-2xl p-6 border border-[#44443C] flex flex-col justify-between font-mono shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]">
-      <div className="flex items-center justify-between border-b border-[#443C3E]/60 pb-3">
-        <span className="text-xs text-[#8B8B8B] font-semibold tracking-widest uppercase">Scanner Int.</span>
-        <div className="flex items-center space-x-2 bg-[#1A1A1A] px-3 py-1.5 rounded-full border border-[#2A2A2A]">
-          <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
-          <span className="text-[10px] text-green-400 font-bold tracking-wider">LIVE FEED</span>
-        </div>
-      </div>
-      <div className="flex-1 mt-6">
-        <p className="text-[#8B8B8B] text-sm leading-relaxed">
-          <span className="text-[#E8E8E8] font-bold">&gt;</span> {text}
-          <span className="w-2 h-4 bg-[#E8E8E8] inline-block ml-1 animate-pulse align-middle"></span>
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function CursorScheduler() {
-  const containerRef = useRef(null);
-  
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const container = containerRef.current;
-      let tl;
-      const createAnim = () => {
-        if(tl) tl.kill();
-        const cell = container.querySelector('.day-cell-target');
-        const btn = container.querySelector('.act-btn');
-        const svg = container.querySelector('.cursor-svg');
-        
-        if (!cell || !btn || !svg) return;
-        
-        const contRect = container.getBoundingClientRect();
-        const cellRect = cell.getBoundingClientRect();
-        const btnRect = btn.getBoundingClientRect();
-        
-        // Exact pixel center of target relative to container top-left
-        const cx = (cellRect.left - contRect.left) + cellRect.width/2 - 14;
-        const cy = (cellRect.top - contRect.top) + cellRect.height/2 - 14;
-        const bx = (btnRect.left - contRect.left) + btnRect.width/2 - 14;
-        const by = (btnRect.top - contRect.top) + btnRect.height/2 - 14;
-
-        tl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
-        tl.set(svg, { x: 30, y: 150, opacity: 0, scale: 1 })
-          .to(svg, { opacity: 1, duration: 0.3 })
-          .to(svg, { x: cx, y: cy, duration: 1, ease: 'power2.inOut' })
-          .to(svg, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }) 
-          .to(cell, { backgroundColor: '#E8E8E8', color: '#111212', duration: 0.2 }, "-=0.1")
-          .to(svg, { x: bx, y: by, duration: 0.8, ease: 'power2.inOut', delay: 0.4 })
-          .to(svg, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }) 
-          .to(btn, { backgroundColor: '#44443C', duration: 0.2 }, "-=0.1")
-          .to(svg, { opacity: 0, duration: 0.3, delay: 0.3 })
-          .to(cell, { backgroundColor: 'transparent', color: '#8B8B8B', duration: 0.5 })
-          .to(btn, { backgroundColor: 'transparent', duration: 0.5 }, "-=0.5");
-      };
-
-      createAnim();
-      window.addEventListener('resize', createAnim);
-      return () => {
-        if(tl) tl.kill();
-        window.removeEventListener('resize', createAnim);
-      };
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <div ref={containerRef} className="relative h-[220px] w-full overflow-hidden bg-[#1A1A1A] rounded-2xl p-6 border border-[#2A2A2A] flex flex-col items-center justify-center shadow-xl">
-      <h4 className="text-xs font-mono font-bold text-[#8B8B8B] self-start mb-6 uppercase tracking-widest relative z-10">Rendimiento Constante</h4>
-      <div className="flex space-x-2 mb-8 w-full justify-center relative z-10">
-        {['8AM', '1PM', '6PM', '11PM'].map((d, i) => (
-          <div key={i} className={`w-12 h-12 rounded-xl border border-[#443C3E] flex items-center justify-center text-xs font-mono font-bold text-[#8B8B8B] transition-colors ${i === 3 ? 'day-cell-target' : ''}`}>
-            {d}
-          </div>
-        ))}
-      </div>
-      <div className="act-btn px-6 py-2.5 rounded-full border border-[#44443C] text-[11px] font-sans font-bold text-[#8B8B8B] uppercase tracking-wider transition-colors relative z-10">Batería Saludable</div>
-      <svg className="cursor-svg absolute top-0 left-0 pointer-events-none w-7 h-7 z-20" viewBox="0 0 24 24" fill="none" stroke="#E8E8E8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>
-        <path d="M4 4l7.07 17 2.51-7.39L21 11.07z"/>
-      </svg>
-    </div>
-  );
-}
-
-function Features() {
-  const sectionRef = useRef(null);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.from('.feature-card', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-        },
-        y: 60, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out'
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section id="features" ref={sectionRef} className="py-32 px-6 md:px-16 bg-[#111212] relative z-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-20 text-center md:text-left">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-black text-[#E8E8E8] tracking-tight mb-6">Esto es lo que obtenés con Max Pro HN:</h2>
-        </div>
-        
-        {/* Top 3 Interactive Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12 mb-8 xl:mb-12">
-          
-          <div className="feature-card bg-[#111212] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-8 shadow-2xl flex flex-col items-center">
-            <DiagnosticShuffler />
-            <div className="mt-10 text-center flex-1">
-              <h3 className="text-2xl font-display font-bold text-[#E8E8E8] mb-4 tracking-tight">✅ Condición Impecable (Mint Condition)</h3>
-              <p className="text-[#8B8B8B] text-base font-sans leading-relaxed">Cada iPhone que vendemos está en estado prácticamente nuevo. Detalles de uso mínimos. Estamos hablando de equipos que parecen recién sacados de la caja. Leves detalles estéticos.</p>
-            </div>
-          </div>
-
-          <div className="feature-card bg-[#111212] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-8 shadow-2xl flex flex-col items-center">
-            <TelemetryTypewriter />
-            <div className="mt-10 text-center flex-1">
-              <h3 className="text-2xl font-display font-bold text-[#E8E8E8] mb-4 tracking-tight">✅ 100% Original, Sin Manipular</h3>
-              <p className="text-[#8B8B8B] text-base font-sans leading-relaxed">Cero piezas reemplazadas. Cero reparaciones. Cero trucos. Cada componente dentro de tu Pro Max es exactamente el que Apple puso ahí. No es "refurbished." No fue abierto. No fue tocado. Es el teléfono real, completo, tal como fue diseñado.</p>
-            </div>
-          </div>
-
-          <div className="feature-card bg-[#111212] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-8 shadow-2xl flex flex-col items-center">
-            <CursorScheduler />
-            <div className="mt-10 text-center flex-1">
-              <h3 className="text-2xl font-display font-bold text-[#E8E8E8] mb-4 tracking-tight">✅ Batería Saludable (75-100%)</h3>
-              <p className="text-[#8B8B8B] text-base font-sans leading-relaxed">Dependiendo del modelo y año, la salud de batería va del 75-100%. Eso significa rendimiento real, duración real, y cero dolores de cabeza con baterías agotadas que te dejan tirado a media tarde.</p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Bottom 2 Static Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12">
-          
-          <div className="feature-card bg-[#1A1A1A] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-10 md:p-12 shadow-2xl flex flex-col justify-center">
-             <h3 className="text-3xl font-display font-bold text-[#E8E8E8] mb-4">✅ Especialistas Absolutos en Pro Max</h3>
-             <p className="text-[#8B8B8B] text-lg font-sans leading-relaxed">No nos distraemos. No vendemos "de todo." Somos los especialistas en iPhone Pro Max en Honduras. Modelos 14 Pro Max, 15 Pro Max y 16 Pro Max. Eso es todo. Esa especialización es lo que nos permite garantizar la calidad que nadie más puede.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 hover:border-[#443C3E] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 min-w-[320px]">
+            <p className="font-display font-black text-[56px] text-[#E8E8E8] leading-none mb-2">1000+</p>
+            <h3 className="font-display font-bold text-2xl text-[#E8E8E8] mb-3">Equipos Vendidos</h3>
+            <p className="font-sans text-[15px] text-[#8B8B8B] leading-relaxed">Sin problemas. Sin devoluciones. Clientes satisfechos en Tegucigalpa y más allá.</p>
           </div>
           
-          <div className="feature-card bg-[#1A1A1A] border border-[#2A2A2A] hover:border-[#443C3E] transition-colors duration-500 rounded-[2.5rem] p-10 md:p-12 shadow-2xl flex flex-col justify-center">
-             <h3 className="text-3xl font-display font-bold text-[#E8E8E8] mb-4">✅ Precios Que el 95% del Mercado No Puede Igualar</h3>
-             <p className="text-[#8B8B8B] text-lg font-sans leading-relaxed">Esto no es un eslogan vacío. Es un hecho. Nuestro modelo de precio accesible aplicado al comprador individual significa que vas a pagar significativamente menos que en cualquier tienda tradicional o vendedor promedio. Compará. Investigá. Y después hablá con nosotros. Los números hablan solos.</p>
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 hover:border-[#443C3E] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 min-w-[320px]">
+            <p className="font-display font-black text-[56px] text-[#E8E8E8] leading-none mb-2">100%</p>
+            <h3 className="font-display font-bold text-2xl text-[#E8E8E8] mb-3">Original Certificado</h3>
+            <p className="font-sans text-[15px] text-[#8B8B8B] leading-relaxed">Cada Pro Max pasa diagnóstico técnico. Documento verifiable. Componentes de fábrica intactos.</p>
           </div>
-
-        </div>
-
-        <div className="mt-16 flex justify-center w-full z-20 relative">
-          <Button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="!px-12 !py-6 !text-lg !font-bold hover:shadow-[0_0_30px_rgba(232,232,232,0.15)]">
-            Ver Precios Exclusivos
-          </Button>
+          
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 hover:border-[#443C3E] hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 min-w-[320px]">
+            <p className="font-display font-black text-[56px] text-[#E8E8E8] leading-none mb-2">14d</p>
+            <h3 className="font-display font-bold text-2xl text-[#E8E8E8] mb-3">Garantía Sin Restricciones</h3>
+            <p className="font-sans text-[15px] text-[#8B8B8B] leading-relaxed">Cambio o devolución completa. Nosotros asumimos el riesgo, no vos.</p>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Protocol() {
-  const containerRef = useRef(null);
-  const cardsRef = useRef([]);
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const cards = cardsRef.current;
-      
-      let mm = gsap.matchMedia();
-      
-      mm.add("(min-width: 1024px)", () => {
-        cards.forEach((card, i) => {
-          if (i === cards.length - 1) return;
-
-          gsap.to(card, {
-            scale: 0.94,
-            opacity: 0.85,
-            filter: 'blur(2px)',
-            scrollTrigger: {
-              trigger: cards[i + 1],
-              start: 'top bottom',
-              end: 'top 20%',
-              scrub: true,
-            }
-          });
-        });
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
-  const steps = [
-    {
-      step: '01',
-      title: 'Garantía Sin Preocupaciones',
-      desc: 'Sabemos que comprar tecnología premium requiere confianza. Por eso te damos algo que casi nadie en este mercado ofrece: 14 días de garantía total.',
-      img: protocolImg1,
-      icon: <CheckCircle className="w-10 h-10 text-[#E8E8E8]" />
-    },
-    {
-      step: '02',
-      title: 'Nosotros Asumimos el Riesgo',
-      desc: 'Si tu iPhone Pro Max presenta cualquier defecto de fábrica dentro de los primeros 14 días, te ofrecemos: Cambio inmediato por otro equipo, o devolución completa de tu dinero. Sin letras pequeñas. Sin excusas. Sin vueltas. Tu compra está protegida. Punto.',
-      img: protocolImg2,
-      icon: <ShieldCheck className="w-10 h-10 text-[#E8E8E8]" />
-    },
-    {
-      step: '03',
-      title: 'Inventario Limitado — Esto No Dura',
-      desc: 'Seamos claros: conseguir iPhone Pro Max en condición mint, 100% originales y sin manipular, no es fácil. Cada lote que recibimos es limitado, y cuando se acaba… se acaba. No hay lista de espera. Los compradores inteligentes no esperan. Actúan.',
-      img: protocolImg3,
-      icon: <Activity className="w-10 h-10 text-[#E8E8E8]" />
-    }
+function VerificationChecklist() {
+  const checks = [
+    "Autenticidad de Componentes",
+    "Prueba de Cámara & Audio",
+    "Diagnóstico Técnico Completo",
+    "Reporte de Batería Documentado",
+    "Garantía 14 Días Incluida"
   ];
 
   return (
-    <section id="protocol" ref={containerRef} className="relative w-full bg-[#111212] pt-32 pb-48 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 mb-20 text-center md:text-left">
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-black tracking-tight text-[#E8E8E8]">Garantía Total.</h2>
-        <p className="text-xl text-[#8B8B8B] font-sans mt-4 max-w-2xl">Porque confiamos al 100% en la calidad de cada equipo que vendemos.</p>
-      </div>
-      
-      <div className="relative max-w-6xl mx-auto px-6 space-y-16 lg:space-y-0">
-        {steps.map((s, i) => (
-          <div 
-            key={i} 
-            ref={el => cardsRef.current[i] = el}
-            className="protocol-card lg:sticky w-full min-h-[400px] flex flex-col md:flex-row rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-[#443C3E]/80 shadow-2xl bg-[#1A1A1A] my-8 lg:my-0 lg:-mt-12 transition-all duration-300"
-            style={{ 
-              top: `calc(10vh + ${i * 40}px)`, 
-              zIndex: 10 + i,
-              transformOrigin: 'top center'
-            }}
-          >
-            <div className="w-full aspect-[4/5] sm:aspect-square md:aspect-auto md:w-1/2 md:h-auto flex-none md:flex-1 relative overflow-hidden bg-[#111212]">
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#1A1A1A] via-transparent to-transparent z-10 w-full h-full"></div>
-              <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-screen scale-105" />
+    <section className="py-24 px-6 bg-[#111212] relative z-20">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-12 text-center md:text-left">
+          Cómo Verificamos Cada Equipo
+        </h2>
+        
+        <div className="rounded-[28px] border border-[#2A2A2A] bg-[#1A1A1A] shadow-xl overflow-x-auto">
+          <div className="min-w-[800px]">
+            {/* Header */}
+            <div className="grid grid-cols-4 bg-[#0B0B0B] p-6 font-mono font-bold text-[12px] uppercase tracking-[0.18em] text-[#8B8B8B]">
+              <div className="col-span-1">Verificación</div>
+              <div className="text-center">14 Pro Max</div>
+              <div className="text-center">15 Pro Max</div>
+              <div className="text-center">16 Pro Max</div>
             </div>
-            
-            <div className="w-full md:w-1/2 flex-1 md:h-full flex flex-col justify-center p-8 md:p-12 lg:p-16 text-left relative bg-[#1A1A1A] z-20">
-              <span className="font-display font-black text-[120px] lg:text-[180px] absolute -top-10 lg:-top-20 right-8 text-[#111212] opacity-40 select-none z-0">
-                .{s.step}
-              </span>
-              
-              <div className="w-20 h-20 flex-shrink-0 bg-[#443C3E]/40 backdrop-blur-xl border border-[#443C3E] rounded-[1.5rem] flex items-center justify-center mb-6 md:mb-8 shadow-2xl relative z-10">
-                {s.icon}
+            {/* Rows */}
+            {checks.map((check, i) => (
+              <div key={i} className="grid grid-cols-4 p-6 border-b border-[#2A2A2A] last:border-b-0 items-center">
+                <div className="col-span-1 font-sans text-lg text-[#E8E8E8] font-medium">{check}</div>
+                <div className="text-center font-display font-black text-2xl text-[#4ADE80]">✓</div>
+                <div className="text-center font-display font-black text-2xl text-[#4ADE80]">✓</div>
+                <div className="text-center font-display font-black text-2xl text-[#4ADE80]">✓</div>
               </div>
-              
-              <div className="relative z-10">
-                <h3 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-[#E8E8E8] mb-6 leading-tight">{s.title}</h3>
-                <p className="text-[#8B8B8B] text-lg font-sans max-w-md leading-relaxed">{s.desc}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ModelsAvailable() {
+  return (
+    <section id="productos" className="py-24 px-6 bg-[#111212] relative z-20">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-display font-black text-[#E8E8E8] tracking-tight mb-12 text-center md:text-left">
+          Modelos Disponibles Ahora
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* 14 Pro Max */}
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 text-center hover:border-[#443C3E] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col items-center">
+            <h3 className="font-display font-black text-[36px] text-[#E8E8E8] mb-2 tracking-tight">14 Pro Max</h3>
+            <p className="font-mono font-bold text-[14px] text-[#8B8B8B] tracking-[0.14em] uppercase mb-8">256GB</p>
+            <div className="mt-auto flex flex-col items-center">
+              <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none mb-4">L15,800</p>
+              <div className="bg-[#4ADE80]/10 border border-[#4ADE80]/20 px-4 py-2 rounded-full">
+                <p className="font-mono font-bold text-[13px] text-[#4ADE80] tracking-wide">Battery: 75–100%</p>
               </div>
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="relative z-30 mt-24 flex justify-center w-full">
-        <Button onClick={() => window.dispatchEvent(new CustomEvent('openContactModal'))} className="!px-12 !py-6 !text-lg !font-bold hover:shadow-[0_0_30px_rgba(232,232,232,0.15)]">
-          Cotizar con Respaldo
-        </Button>
+          {/* 15 Pro Max */}
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 text-center hover:border-[#443C3E] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col items-center">
+            <h3 className="font-display font-black text-[36px] text-[#E8E8E8] mb-2 tracking-tight">15 Pro Max</h3>
+            <p className="font-mono font-bold text-[14px] text-[#8B8B8B] tracking-[0.14em] uppercase mb-8">256GB</p>
+            <div className="mt-auto flex flex-col items-center">
+              <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none mb-4">L18,500</p>
+              <div className="bg-[#4ADE80]/10 border border-[#4ADE80]/20 px-4 py-2 rounded-full">
+                <p className="font-mono font-bold text-[13px] text-[#4ADE80] tracking-wide">Battery: 80–100%</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 16 Pro Max */}
+          <div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-[28px] p-8 text-center hover:border-[#443C3E] hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-300 flex flex-col items-center">
+            <h3 className="font-display font-black text-[36px] text-[#E8E8E8] mb-2 tracking-tight">16 Pro Max</h3>
+            <p className="font-mono font-bold text-[14px] text-[#8B8B8B] tracking-[0.14em] uppercase mb-8">256GB</p>
+            <div className="mt-auto flex flex-col items-center">
+              <p className="font-display font-black text-[48px] text-[#E8E8E8] leading-none mb-4">L24,800</p>
+              <div className="bg-[#4ADE80]/10 border border-[#4ADE80]/20 px-4 py-2 rounded-full">
+                <p className="font-mono font-bold text-[13px] text-[#4ADE80] tracking-wide">Battery: 90–100%</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -712,7 +444,7 @@ function AccordionItem({ question, answer, isOpen, onClick }) {
 function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
   const faqs = [
-    {q: '1. ¿Los iPhones que venden son originales o son "refurbished"?', a: '<b>Son 100% originales. No son refurbished.</b><br/>Cada iPhone Pro Max que vendemos conserva <b>todas sus piezas de fábrica intactas.</b> No fueron abiertos, no fueron reparados, no se les cambió absolutamente nada. Cuando decimos "original" lo decimos en serio — cada tornillo, cada chip, cada componente es exactamente el que Apple colocó.<br/><br/>¿La diferencia con un "refurbished"? Un refurbished fue desarmado, reparado con piezas genéricas y rearmado para que <i>parezca</i> nuevo. <b>Los nuestros nunca fueron tocados.</b>'},
+    {q: '1. ¿Los iPhones que venden son originales o son "reacondicionados"?', a: '<b>Son 100% originales. No son reacondicionados.</b><br/>Cada iPhone Pro Max que vendemos conserva <b>todas sus piezas de fábrica intactas.</b> No fueron abiertos, no fueron reparados, no se les cambió absolutamente nada. Cuando decimos "original" lo decimos en serio — cada tornillo, cada chip, cada componente es exactamente el que Apple colocó.<br/><br/>¿La diferencia con un "reacondicionado"? Un reacondicionado fue desarmado, reparado con piezas genéricas y rearmado para que <i>parezca</i> nuevo. <b>Los nuestros nunca fueron tocados.</b>'},
     {q: '2. Si no son nuevos de caja, ¿entonces qué son exactamente?', a: 'Son equipos en <b>condición mint</b> — estado prácticamente nuevo con leves detalles estéticos mínimos. Estamos hablando de iPhones que al verlos y usarlos <b>sentís que acabás de abrir la caja.</b> Funcionan al 100%, se ven al 100%, y rinden al 100%.<br/><br/>La única diferencia con uno "nuevo de tienda" es que ya fueron activados previamente. <b>Todo lo demás — rendimiento, apariencia, calidad — es idéntico.</b>'},
     {q: '3. ¿Qué modelos tienen disponibles?', a: 'Nos especializamos <b>exclusivamente</b> en la línea Pro Max:<br/>- 📱 <b>iPhone 14 Pro Max</b><br/>- 📱 <b>iPhone 15 Pro Max</b><br/>- 📱 <b>iPhone 16 Pro Max</b><br/><br/>No vendemos otros modelos. No vendemos otras marcas. <b>Somos especialistas en Pro Max y punto.</b> Esa obsesión por un solo producto es lo que nos permite garantizar una calidad que nadie más puede.'},
     {q: '4. ¿Qué capacidades de almacenamiento manejan?', a: 'Manejamos la capacidad más popular según disponibilidad: <b>256GB</b>.<br/>La disponibilidad varía según el lote, así que lo mejor es <b>escribirnos por WhatsApp</b> para que te digamos exactamente qué tenemos en stock en este momento.'},
@@ -938,17 +670,17 @@ function ContactModal() {
   );
 }
 
-function GetStarted() {
+function NewCTA() {
   return (
-    <section id="contact" className="py-32 md:py-48 px-6 bg-[#1A1A1A] rounded-t-[3rem] md:rounded-t-[5rem] border-t border-[#443C3E]/60 relative z-40 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+    <section id="contact" className="py-32 md:py-48 px-6 bg-[#1A1A1A] rounded-t-[3rem] md:rounded-t-[5rem] border-t border-[#443C3E]/60 relative z-40 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.5)] flex flex-col items-center">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-px bg-gradient-to-r from-transparent via-[#8B8B8B]/40 to-transparent"></div>
       
       <div className="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center">
-        <h2 className="text-5xl md:text-7xl font-display font-black tracking-tighter text-[#E8E8E8] mb-8 leading-[1.05]">
-          ¿Listo para tener tu iPhone Pro Max al mejor precio de Honduras?
+        <h2 className="text-5xl md:text-6xl font-display font-black tracking-tighter text-[#E8E8E8] mb-8 leading-[1.05]">
+          Escribinos Hoy.
         </h2>
         <p className="text-[#8B8B8B] font-sans text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-balance leading-relaxed">
-          Hacé clic aquí para contactarnos por WhatsApp y asegurar tu Pro Max antes de que se agote nuestro inventario.
+          Decinos qué modelo querés. Te enviamos foto real, especificaciones exactas, y precio firme.
         </p>
         
         <HoverCTA />
@@ -1114,15 +846,16 @@ export default function App() {
 
   return (
     <div className="bg-[#111212] min-h-screen font-sans selection:bg-[#E8E8E8] selection:text-[#111212] relative">
+      <TopBanner />
       <GlobalStars />
       <InAppAlertModal />
       <ContactModal />
             <Navbar />
       <Hero />
-      <Philosophy />
-      <Features />
-      <Protocol />
-      <GetStarted />
+      <ProofMetrics />
+      <VerificationChecklist />
+      <ModelsAvailable />
+      <NewCTA />
       <FAQ />
       <Footer />
     </div>

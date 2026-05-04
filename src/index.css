@@ -25,3 +25,21 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes windMove {
+  0% { background-position: 200% 0; }
+  100% { background-position: 0 0; }
+}
+@keyframes swayFlag {
+  0%, 100% { transform: perspective(1000px) rotateY(-2deg) rotateX(1deg) translateY(0); }
+  50% { transform: perspective(1000px) rotateY(2deg) rotateX(-1deg) translateY(2px); }
+}
+.animate-flag-wind {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0.4) 25%, rgba(0,0,0,0.8) 50%, rgba(255,255,255,0.4) 75%, rgba(0,0,0,0.8) 100%);
+  background-size: 200% 100%;
+  animation: windMove 6s linear infinite;
+}
+.animate-sway-flag {
+  animation: swayFlag 8s ease-in-out infinite;
+  transform-origin: top center;
+}
