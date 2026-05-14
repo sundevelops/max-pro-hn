@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import logoImg from './assets/Max Pro HN logo.jpg';
 import phoneImg from './assets/Gemini_Generated_Image_b3a8xhb3a8xhb3a8.png';
+import visaLogo from './assets/visa_logo.png';
 
 
 import { Box, Activity, Battery, ShieldCheck, CheckCircle, ArrowRight, Instagram, Facebook, Smartphone, Plus, Minus, X, Menu, Lock, Copy, Check } from 'lucide-react';
@@ -181,7 +182,7 @@ function TopBanner() {
 
            <span className="font-sans font-black tracking-wide text-[#071320] text-[10px] md:text-[13px] uppercase text-center px-4"
                  style={{ textShadow: '0 1px 1px rgba(255,255,255,1), 0 0 8px rgba(255,255,255,0.8)' }}>
-             ¡Pronto estaremos expandiendo y haciendo envíos a nivel nacional!
+             ¡Ahora contamos con envíos a nivel nacional!
            </span>
 
            <div className="relative w-8 h-[14px] text-[#00BCE4] flex-shrink-0">
@@ -192,6 +193,55 @@ function TopBanner() {
              <span className="absolute bottom-0 right-0 text-[7px] leading-none">★</span>
            </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function PaymentBanner({ className = '' }) {
+  const logos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 
+  
+  return (
+    <div className={`w-full overflow-hidden relative z-[40] pointer-events-none ${className}`}>
+      <div className="flex animate-marquee items-center whitespace-nowrap w-max py-2">
+        {[0, 1].map((set) => (
+          <div key={set} className="flex items-center">
+            {logos.map((i) => (
+              <React.Fragment key={i}>
+                <span className="mx-6 font-mono font-bold uppercase tracking-widest text-[11px] md:text-sm text-[#E8E8E8] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">¡AHORA ACEPTAMOS VISA Y MASTERCARD!</span>
+                
+                {/* Visa Logo provided by user */}
+                <img src={visaLogo} alt="Visa" className="h-8 md:h-10 w-auto mx-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] object-contain" />
+
+                {/* Mastercard */}
+                <svg className="h-10 md:h-12 w-auto mx-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" viewBox="0 0 300 184" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="92" cy="92" r="92" fill="#EB001B"/>
+                  <circle cx="208" cy="92" r="92" fill="#F79E1B"/>
+                  <path d="M150,22c-14.288,13.863-23.3,33.513-23.3,55.006s9.012,41.144,23.3,55.006c14.288-13.863,23.3-33.513,23.3-55.006S164.288,35.863,150,22z" fill="#FF5F00"/>
+                </svg>
+              </React.Fragment>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PaymentFooterLogos() {
+  return (
+    <div className="w-full bg-[#111212] py-16 flex flex-col items-center justify-center border-t border-[#1A1A1A] relative z-[40]">
+      <p className="text-[#8B8B8B] font-mono text-sm tracking-widest uppercase font-medium mb-8">Tarjetas Aceptadas</p>
+      <div className="flex items-center gap-12 md:gap-20">
+        {/* Visa Logo provided by user */}
+        <img src={visaLogo} alt="Visa" className="h-12 md:h-16 w-auto drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] object-contain" />
+
+        {/* Mastercard */}
+        <svg className="h-12 md:h-16 w-auto drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]" viewBox="0 0 300 184" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="92" cy="92" r="92" fill="#EB001B"/>
+          <circle cx="208" cy="92" r="92" fill="#F79E1B"/>
+          <path d="M150,22c-14.288,13.863-23.3,33.513-23.3,55.006s9.012,41.144,23.3,55.006c14.288-13.863,23.3-33.513,23.3-55.006S164.288,35.863,150,22z" fill="#FF5F00"/>
+        </svg>
       </div>
     </div>
   );
@@ -211,7 +261,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'top-[4.5rem] bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'top-[5.5rem] bg-transparent'}`}>
+      <nav className={`fixed left-1/2 -translate-x-1/2 z-[100] flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-[95%] max-w-5xl ${scrolled ? 'top-[4.5rem] bg-[#111212]/80 backdrop-blur-xl border border-[#443C3E]/50 shadow-2xl' : 'top-[9.5rem] bg-transparent'}`}>
         <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center space-x-3 cursor-pointer group">
           <img src={logoImg} alt="Max Pro HN Logo" className="h-10 md:h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(232,232,232,0.3)] filter contrast-125 brightness-110 rounded-xl transform group-hover:scale-105 transition-transform" />
           <span className="font-display font-bold text-xl md:text-2xl tracking-tight text-[#E8E8E8]">Max Pro HN</span>
@@ -274,7 +324,12 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#111212] via-[#111212]/80 to-[#111212]/20"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-start xl:items-center xl:text-center gap-8 mt-24 md:mt-16 xl:mt-12">
+      {/* Top Payment Banner */}
+      <div className="absolute top-[80px] left-0 w-full z-20 pointer-events-none overflow-hidden">
+        <PaymentBanner />
+      </div>
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-start xl:items-center xl:text-center gap-8 mt-24 md:mt-24 xl:mt-24">
         <div className="flex flex-col gap-6 w-full items-start xl:items-center">
           <h1 className="hero-text text-5xl md:text-6xl lg:text-7xl font-display font-black text-[#E8E8E8] leading-[1.05] tracking-tight text-balance max-w-4xl drop-shadow-2xl">
             ¿Querés un iPhone Pro Max <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500">original</span>, en estado impecable, a un precio que <span className="italic">es accesible</span>?
@@ -869,6 +924,7 @@ export default function App() {
       <ModelsAvailable />
       <NewCTA />
       <FAQ />
+      <PaymentFooterLogos />
       <Footer />
     </div>
   );
